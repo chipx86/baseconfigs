@@ -1,0 +1,29 @@
+# -*- shell-script -*-
+
+# ANSI escapes for colors and attributes.
+Black="%{\e[30m%}"
+Blue="%{\e[34m%}"
+Green="%{\e[32m%}"
+Cyan="%{\e[36m%}"
+Red="%{\e[31m%}"
+Purple="%{\e[35m%}"
+Brown="%{\e[33m%}"
+Gray="%{\e[37m%}"
+Bold="%{\e[1m%}"
+Norm="%{\e[0m%}"
+
+Title="%{\e]2;%}%n@%m %~\a"
+
+# A rather boring prompt.
+#export PS1="%n@%m%# "
+
+export PS1="$(print "$Bold$Cyan#$Norm$Cyan#$Bold$Black($Norm$Cyan%n$Bold$Cyan@$Norm$Cyan%m$Bold$Black)$Norm$Cyan$Norm$Cyan#$Bold$Cyan#$Bold$Black($Bold$Cyan%~$Bold$Black)$Bold$Cyan>$Norm ")"
+
+export PS2="$(print "$Bold$Black#$Norm$Cyan#$Bold$Cyan#>$COLOR4 ")"
+
+
+case $TERM in
+    xterm*|Eterm)
+		precmd () {print -Pn "\e]0;%n@%m: %~\a"}
+		;;
+esac

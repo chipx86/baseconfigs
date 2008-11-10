@@ -1,0 +1,116 @@
+#compdef gpkg
+#
+# Copyright (C) 2002 The GNUpdate Project.
+#
+# Last updated: Sun Sep 29 12:20:38 PDT 2002
+#
+#--------------------------------------------------------------------------
+#
+# Installation Instructions:
+#
+#   1) Make a directory for compdef files. For example: ~/.zsh/compdef
+#
+#      $ mkdir ~/.zsh/compdef
+#      $ mv _gpkg ~/.zsh/compdef
+#
+#   2) Put the following in your .zshrc:
+#
+#      fpath=($fpath ~/.zsh/compdef)  # Change to your compdef directory
+#      autoload -U compinit
+#      compinit
+#
+#   3) Log out and log back in.
+#
+#--------------------------------------------------------------------------
+
+typeset -A opt_args 
+
+local context state line
+local _databases
+
+_databases() {
+	local a
+	
+	a=($(for d in /usr/lib /usr/local/lib; do \
+		if [ -d $d/packman ]; then \
+			/bin/ls -1 $d/packman/database/lib*db.so | sed -e "s/^.*\?lib\(.*\)db\.so/\1/g";
+		fi; \
+	done))
+
+	_description databases expl "Databases"
+	compadd "$expl[@]" - "$a[@]"
+}
+
+_package_files() {
+	local a dbparam pkg flags
+
+	if [ "x$opt_args[--db]" != "x" ]; then
+		dbparam="--db=$opt_args[--db]"
+	fi
+
+	if [ "x$opt_args[-x]" != "x" ]; then
+		flags=(${(s.:.)opt_args[-x]})
+	elif [ "x$opt_args[--extract]" != "x" ]; then
+		flags=(${(s.:.)opt_args[--extract]})
+	fi
+
+	pkg=$flags[0]
+
+	a=($(gpkg $dbparam -L $pkg))
+
+	_description package_files expl "$pkg's contents"
+	compadd "$expl[@]" - "$a[@]"
+}
+
+_db_packages() {
+	local a dbparam
+
+	if [ "x$opt_args[--db]" != "x" ]; then
+		dbparam="--db=$opt_args[--db]"
+	fi
+
+	a=($(gpkg $dbparam -An))
+
+	_description installed_packages expl "Installed packages"
+	compadd "$expl[@]" - "$a[@]"
+}
+
+_local_packages() {
+	_description files expl "Package files"
+	_files "$expl[@]" -g '*.(rpm|deb|ipk)'
+}
+
+_local_or_db_pkg() {
+	_alternative \
+		'files:Package files:_local_packages' \
+		'installed_packages:Installed packages:_db_packages'
+}
+
+_arguments -C -s \
+	{-h,--help}"[Displays the help screen.]" \
+	"--version[Displays the version of gpkg.]" \
+	"(-v --verbose)"{-q,--quiet}"[Causes gpkg to run silently.]" \
+	"(-q --quiet)"{-v,--verbose}"[Causes gpkg to run verbosely.]" \
+	{-t,--test}"[Doesn't actually perform file operations.]" \
+	{-m,--menu}"[Displays the menu interface.]" \
+	"*--db=-[Sets the database to use.]:db:_databases" \
+	"*--root=-[Sets the root directory. You must be root to do this.]:root:_files -/" \
+	{-i,--install}"[Installs the specified package(s).]:Packages:_local_or_db_pkg" \
+	"--upgrade[Upgrades the specified package(s). This is the same as install.]:Packages:_local_or_db_pkg" \
+	{-u,--uninstall}"[Uninstalls the specified package(s).]:Packages:_db_packages" \
+	{-x,--extract}"[Extracts the specified file(s) from a package.]:Packages:_local_packages:Package files:_package_files" \
+	{-A,--all}"[Lists all installed packages.]" \
+	{-I,--info}"[Displays information on the package.]:Packages:_local_or_db_pkg" \
+	{-L,--list}"[Lists the files in a package.]:Packages:_local_or_db_pkg" \
+	{-P,--provides}"[Lists the provided dependencies in a package.]:Packages:_local_or_db_pkg" \
+	{-R,--requires}"[Lists the required dependencies in a package.]:Packages:_local_or_db_pkg" \
+	{-O,--what-owns}"[Displays the packages that own the specified file.]:Files:_files" \
+	"--what-provides[Displays the packages that provide the specified dependency.]" \
+	"--what-require[Displays the packages that require the specified dependency.]" \
+	{-E,--expr}"[Displays the packages in the specified output format.]" \
+	"--dep-graph[Outputs a GraphViz dependency graph file to stdout.]:Packages:_local_or_db_pkg" \
+	"--diff[Outputs a unified diff of two packages, or one package against the database.]:Packages:_local_or_db_pkg:Packages:_local_or_db_pkg" \
+	"--create-db[Creates a package database.]" \
+	"--import-db[Imports a package database.]:db:_databases" \
+	"--rebuild-db[Rebuilds the package database indexes.]" \
+	&& return 0

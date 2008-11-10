@@ -1,0 +1,15 @@
+# -*- shell-script -*-
+
+# Useful.
+setopt autolist         # List possible completions
+setopt automenu         # But after that switch between possible
+setopt nonomatch        # nomatch is stupid and should be shot
+setopt nobeep           # beep is even worse and should be burned
+setopt extended_glob    # Allow extended stuff in globs (yeah...)
+
+# Also.
+#ulimit -c 0             # Disable core dumps
+ulimit -c unlimited
+
+# This might not always help
+#stty erase ^?
