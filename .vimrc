@@ -38,7 +38,7 @@ set wildignore=*.aux,*.bak,*.dvi,*.gz,*.idx,*.log,*.ps,*.swp,*.tar,*.zip,*.old,*
 set ttyfast
 set wildmenu
 set noincsearch
-set sw=3
+set sw=4
 set ts=8
 set suffixes=.aux,.bak,.dvi,.gz,.idx,.log,.ps,.swp,.tar,.zip,.o,.la,.lo,.lib,.a,.so
 

@@ -18,7 +18,7 @@ au BufNewFile,BufRead *.cs  source $HOME/.vim/csharp.vim
 au BufNewFile,BufRead svn-commit.* setf svn | set noai et
 
 au FileType asm    set ai    sw=8 ts=8 | source $HOME/.vim/asm.vim
-au FileType c,cpp  set si    sw=4 ts=4 | source $HOME/.vim/c.vim
+au FileType c,cpp  set si    | source $HOME/.vim/c.vim
 au FileType cs     set si    sw=4 ts=4 | source $HOME/.vim/csharp.vim
 au FileType cobol  set ai et sw=4 ts=4
 "au FileType cpp    set si    sw=4 ts=4 | source $HOME/.vim/c.vim
