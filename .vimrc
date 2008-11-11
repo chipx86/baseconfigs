@@ -54,6 +54,9 @@ set scrolloff=2
 set iskeyword=@,48-57,_,192-255,-,.,@-@
 set shortmess=atI
 
+" Show the filename and path in the titlebar.
+set title
+
 "autocmd!
 " Set a nice little type-correction thingy :)
 iab aslo       also
