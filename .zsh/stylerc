@@ -1,0 +1,32 @@
+# -*- shell-script -*-
+
+# Fancy menu selection when there's ambiguity
+#zstyle ':completion:*' menu yes=10 select=10 interactive
+zstyle ':completion:*' menu
+
+# Separate matches into groups
+zstyle ':completion:*:matches' group 'yes'
+
+# Describe each match group.
+zstyle ':completion:*:descriptions' format "%B---- %d%b"
+
+# Messages/warnings format
+zstyle ':completion:*:messages' format '%B%U---- %d%u%b' 
+zstyle ':completion:*:warnings' format '%B%U---- no match for: %d%u%b'
+ 
+# Describe options in full
+zstyle ':completion:*:options' description 'yes'
+zstyle ':completion:*:options' auto-description '%d'
+
+# Completion for 'kill'
+zstyle ':completion:*:*:kill:*' menu yes select
+zstyle ':completion:*:kill:*' force-list always
+
+## add colors to completions
+zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
+
+## on processes completion complete all user processes
+zstyle ':completion:*:processes' command 'ps -au$USER'
+
+## add colors to processes for kill completion
+zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;31'

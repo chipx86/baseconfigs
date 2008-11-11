@@ -1,0 +1,49 @@
+#!/bin/zsh
+
+# match-man
+# Manual page matching.
+# assumes options NULLGLOB and EXTENDEDGLOB are set.
+
+# variables used in this shell.  bigdirs and lildirs are in a subshell.
+local section arg line
+
+# read command line.
+read -Ac line
+
+# guess manual section.  This could be fooled by other options, but
+# ought to be fairly robust.
+for arg in $line
+do
+  if [[ "$arg" = ([1-9nlo]|[1-9](|[a-z])) ]]
+  then
+    section=$arg
+    break
+  fi
+done
+
+# form reply list from elements in $MANPATH.
+reply=($(
+# check if manpath is already set.
+if [[ -z "$MANPATH" ]]
+then
+  # set manpath - in path:path:path form, and use it in (path path path) form.
+  MANPATH=$(manpath)
+fi
+for bigdirs in $manpath 
+do 
+  if [[ -z "$section" ]]
+  then
+    # no section specified, look in them all.
+    for lildirs in $bigdirs/(man|cat)?(/N) 
+    do 
+      echo $lildirs/$1*$2.([1-9nlo]|[1-9](|[a-z]))(N:r:t) \
+        $lildirs/$1*$2.([1-9nlo]|[1-9](|[a-z])).(gz|z|Z)(N:r:r:t) 
+    done
+  else
+    # section given, only search that one.
+    echo $bigdirs/(man|cat)$section[1]/$1*$2.$section(|[a-z])(N:r:t) \
+      $bigdirs/(man|cat)$section[1]/$1*$2.$section(|[a-z]).(gz|z|Z)(N:r:r:t) 
+  fi
+done
+))
+

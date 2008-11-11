@@ -1,0 +1,80 @@
+# -*- shell-script -*-
+
+#--------------------------------------------------------------------------
+# Basic stuff
+#==========================================================================
+alias ls="ls $LS_OPTIONS"
+alias ll="ls -l"
+alias sl="ls"
+alias df="df -h"
+alias du="du -h"
+alias lsd='ls -d *(-/DN)'
+alias lsa='ls -d .*'
+
+alias o='gnome-open'
+
+alias smi='sudo make install'
+
+alias jgvim='XMODIFIERS="@im=kinput2" LANG=ja_JP.eucJP gvim'
+
+#alias make='make MAKE="make -kj 3" -kj 3'
+
+alias genthumb='/home/chipx86/scripts/mkGallery -t -a -n -d'
+
+#--------------------------------------------------------------------------
+# Development
+#==========================================================================
+# Moved to functionsrc
+#alias cvsdiff='cvs -z3 diff -u | vim -c "set ft=diff" -'
+
+#--------------------------------------------------------------------------
+# Webpages
+#==========================================================================
+alias google="w3m http://www.google.com"
+
+#--------------------------------------------------------------------------
+# Changing directories and stuff
+#==========================================================================
+alias cd..='cd ..'
+alias cd...='cd ...'
+alias cd....='cd ....'
+alias cd.....='cd .....'
+alias cd......='cd ......'
+alias cd/='cd /'
+
+#--------------------------------------------------------------------------
+# CVSROOTs
+#==========================================================================
+alias cvsmino="export CVS_RSH=ssh ; export CVSROOT=chipx86@cvs.minoxml.cx:/cvsroot/mino"
+alias cvsgnupdate="export CVS_RSH=ssh ; export CVSROOT=chipx86@cvs.gnupdate.org:/cvsroot/gnupdate"
+alias cvsgnome="export CVSROOT=:pserver:anonymous@anoncvs.gnome.org:/cvs/gnome"
+alias cvsenlightenment="export CVSROOT=:pserver:anonymous@cvs.enlightenment.sourceforge.net:/cvsroot/enlightenment"
+alias cvsgaim="export CVS_RSH=ssh ; export CVSROOT=chipx86@cvs.sourceforge.net:/cvsroot/gaim"
+alias cvsmozilla="export CVSROOT=:pserver:anonymous@cvs-mirror.mozilla.org:/cvsroot"
+alias cvsfreedows="export CVS_RSH=ssh ; export CVSROOT=chipx86@cvs.sourceforge.net:/cvsroot/freedows"
+alias cvspwd="export CVSROOT=:pserver:chipx86@cvs.chipx86.com:/cvsroot/portaldesign"
+alias cvsweb="export CVSROOT=:pserver:chipx86@cvs.chipx86.com:/cvsroot/websites"
+alias cvspersonal="export CVSROOT=:pserver:chipx86@cvs.chipx86.com:/cvsroot/personal"
+alias cvszaurus="export CVSROOT=:pserver:chipx86@cvs.chipx86.com:/cvsroot/zaurus"
+alias cvsreality2="export CVSROOT=:pserver:chipx86@cvs.chipx86.com:/cvsroot/reality2"
+alias cvsmobius="export CVSROOT=:pserver:chipx86@cvs.chipx86.com:/cvsroot/mobius"
+alias cvsqpegaim="export CVS_RSH=ssh; export CVSROOT=:ext:chipx86@cvs.sourceforge.net:/cvsroot/qpe-gaim"
+alias cvsoj="export CVSROOT=:pserver:chipx86@cvs.chipx86.com:/cvsroot/oj"
+
+#--------------------------------------------------------------------------
+# Good* tools
+#==========================================================================
+alias goodnes="wine ~/wine/tools/goodnes/GoodNES.exe"
+alias goodsnes="wine ~/wine/tools/goodsnes/GoodSNES.exe"
+alias good2600="wine ~/wine/tools/good2600/Good2600.exe"
+alias good5200="wine ~/wine/tools/good5200/Good5200.exe"
+alias good7800="wine ~/wine/tools/good7800/Good7800.exe"
+alias goodintv="wine ~/wine/tools/goodINTV/GoodINTV.exe"
+alias goodgba="wine ~/wine/tools/goodgba/GoodGBA.exe"
+alias goodgbx="wine ~/wine/tools/goodgbx/GoodGBx.exe"
+
+
+#--------------------------------------------------------------------------
+# Streams
+#==========================================================================
+alias wopn-marconi-bb="ogg123 http://marconi.wopn.org:10000/broadband.ogg"

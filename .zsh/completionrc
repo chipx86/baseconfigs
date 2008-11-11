@@ -1,0 +1,78 @@
+# -*- shell-script -*-
+
+#--------------------------------------------------------------------------
+# Various completions for programs
+#==========================================================================
+compctl -g '*(/) .*(/) *(@) .*(@)' cd pushd
+compctl -g '*(/)' rmdir dircmp
+compctl -g '*.tex *(/)' tex latex tex2ps
+compctl -g '*.dvi *(/)' xdvi dvips
+compctl -g '*.ps *.pdf *(/)' ghostview
+compctl -g '*.(mp3|mp2|mp1|MP3) *(/) .*(/) *(@)' mpg mpg123 splay amp
+compctl -g '*.(ogg|OGG) *(/) .*(/) *(@)' ogg123
+compctl -g '*.(mp3|mp2|mp1|MP3|ogg|OGG) *(/) .*(/) *(@)' xmms
+compctl -g '*.(html|htm|shtml) *(/)' appletviewer galeon lynx w3m
+compctl -g '*(/) .*(/) *(@) .*(@) *.(jpg|JPG|gif|GIF|png|PNG|jpeg|JPEG|xpm|XPM|bmp|BMP|xcf|XCF)' ee ee2 feh
+compctl -g '*(/) .*(/) *.java' javac
+compctl -g '*.y' bison yacc
+compctl -g '*.l' lex flex
+compctl -x 'p[1]' -k hosts -- remsh ping telnet traceroute
+compctl -g '*.(gz|Z|z|zip|ZIP)' + -g '*(-/)' zcat gzcat zmore
+compctl -g '*(/) .*(/) *.arj' unarj
+compctl -g '*(/) .*(/) *.(zip|ZIP)' unzip
+compctl -g '^*.(gz|Z|z|zip|taz|tgz)' gzip
+compctl -g '*.(gz|Z|z|zip|taz|tgz)' gunzip zfile ztouch
+compctl -g '^*.(bz2|tbz)' bzip2
+compctl -g '*.(bz2|tbz)' bunzip2
+compctl -f -x 's[-]' -k '(f R)' - 'S[.]' -f - 'n[-1,.]'  - 'c[-1,-]' -u -S '.' - 'p[1]' -u -S '.' -- chown
+compctl -caF type whence which where
+
+#fpath=($fpath ~/.zsh/compdef)
+#autoload -U compinit
+#compinit
+
+
+#--------------------------------------------------------------------------
+# Ignore these during completion
+#==========================================================================
+#fignore=(.o .c~ .old .pro .bak .bak.* .bk<1-100>)
+fignore=(.o .c~ .old .bak .class)
+
+
+#--------------------------------------------------------------------------
+# Completion for hosts
+#==========================================================================
+hosts=(`hostname` portaldesign.net virtualtimes.net upload.sourceforge.net
+       ocis.net prdownload.sourceforge.net ftp.portaldesign.net ftp.redhat.com
+	   contrib.redhat.com freedesktop.org sshgate)
+
+sshhosts=(portalde@portaldesign.net chipx86@shell1.sourceforge.net
+          chipx86@minoxml.cx chipx86@trinity.lilo.cx chipx86@kiyone.lilo.cx
+		  chipx86@gnupdate.org)
+
+#--------------------------------------------------------------------------
+# Enable completion for hsots
+#==========================================================================
+compctl -k hosts -f rlogin ncftp
+compctl -k hosts + ftp ping rwho rup xping traceroute nslookup telnet
+
+compctl -k sshhosts + ssh ssh1
+
+#--------------------------------------------------------------------------
+# Commands expecting command names or filenames.
+#==========================================================================
+compctl -cf gdb dbx nice xxgdb xdbx ups ddd
+
+
+#--------------------------------------------------------------------------
+# Commands expecting variables
+#==========================================================================
+compctl -v local typeset integer vared
+compctl -E printenv unsetenv
+compctl -c which whence
+
+
+#--------------------------------------------------------------------------
+# Misc completions
+#==========================================================================
+compctl -o -M 'L:|[nN][oO]= M:_= M:{A-Z}={a-z}' setopt unsetopt isset

@@ -1,0 +1,2 @@
+set lisp
+set et
