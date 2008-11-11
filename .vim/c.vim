@@ -19,7 +19,7 @@ map ;T :s/^[ <Tab>]*//<ESC>O/<ESC>74a*<ESC>A/<ESC>jI/** @name <ESC>o<HOME><ESC>C
 set cinkeys=0{,0},:,0#,!^F,o,O
 
 set cindent
-set cinoptions=(0,t0
+set cinoptions=(0,t0,:0,l1,g0
 set formatoptions=croq
 set formatprg=indent
 
