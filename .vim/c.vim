@@ -17,13 +17,9 @@ map ;T :s/^[ <Tab>]*//<ESC>O/<ESC>74a*<ESC>A/<ESC>jI/** @name <ESC>o<HOME><ESC>C
 "vmap ;T <ESC>:'<,'>s/^/ * /<CR>'<O<C-U>/<ESC>74a*<ESC>'>o<C-U><HOME><ESC>C <ESC>74a*<ESC>A/<ESC>'<j0WW
 
 set cinkeys=0{,0},:,0#,!^F,o,O
-
-" VMware code standards
-set cinoptions=(0,t0,:0,l1,g0
-set sw=3
-set ts=3
-set et
-
+set cinoptions=(0,t0
+set sw=4
+set ts=8
 
 set cindent
 set formatoptions=croq
@@ -36,3 +32,5 @@ set tags+=../../../../../tags,../../../../../../tags
 "syn sync fromstart
 "set foldmethod=syntax
 "set foldtext=v:folddashes.substitute(getline(v:foldstart+1),'/\\*\\\|\\*/\\\|{{{\\d\\=','','g')
+
+so $HOME/.vim/vmware.vim
