@@ -75,29 +75,6 @@ export PATH="/home/chipx86/bin:/opt/gnome/bin:$PATH:/usr/local/enlightenment/bin
 
 export CLASSPATH="/usr/local/java/classes/sax2.jar"
 
-
-#############################################################################
-
-# Setup some virtual directory thingies for projects
-gnupdate=/home/chipx86/cvs/gnupdate
-ggnupdate=/home/chipx86/cvs/gnupdate/gnupdate
-leakbug=/home/chipx86/cvs/gnupdate/leakbug
-libcomprex=/home/chipx86/cvs/gnupdate/libcomprex
-libpackman=/home/chipx86/cvs/gnupdate/libpackman
-libpatui=/home/chipx86/cvs/gnupdate/libpatui
-comprex=/home/chipx86/cvs/gnupdate/comprex
-libgnurdf=/home/chipx86/cvs/gnupdate/libgnurdf
-libpql=/home/chipx86/cvs/gnupdate/libpql
-gpkg=/home/chipx86/cvs/gnupdate/gpkg
-genst=/home/chipx86/cvs/gnupdate/genst
-vig=/home/chipx86/projects/virtualtimes/vig
-projeny=/home/chipx86/cvs/gnupdate/projeny
-librobin=/home/chipx86/cvs/C-sik/personal/librobin
-gdb=/home/chipx86/cvs/gnupdate/libpackman/modules/database/gnupdate
-gaim=/home/chipx86/cvs/gaim/rw/gaim
-qpegaim=/home/chipx86/cvs/gaim/zaurus/qpe-gaim
-galago=/home/chipx86/cvs/galago
-
 #
 # Use Japanese
 #
