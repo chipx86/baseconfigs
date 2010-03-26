@@ -9,7 +9,6 @@ Red="%{\e[31m%}"
 Purple="%{\e[35m%}"
 Brown="%{\e[33m%}"
 Gray="%{\e[37m%}"
-Bold="%{\e[1m%}"
 Norm="%{\e[0m%}"
 
 Title="%{\e]2;%}%n@%m %~\a"
@@ -17,9 +16,23 @@ Title="%{\e]2;%}%n@%m %~\a"
 # A rather boring prompt.
 #export PS1="%n@%m%# "
 
-export PS1="$(print "$Bold$Cyan#$Norm$Cyan#$Bold$Black($Norm$Cyan%n$Bold$Cyan@$Norm$Cyan%m$Bold$Black)$Norm$Cyan$Norm$Cyan#$Bold$Cyan#$Bold$Black($Bold$Cyan%~$Bold$Black)$Bold$Cyan>$Norm ")"
+if [[ "$USER" == "root" ]]; then
+	PromptColor=$Brown
+else
+	PromptColor=$Cyan
+fi
 
-export PS2="$(print "$Bold$Black#$Norm$Cyan#$Bold$Cyan#>$COLOR4 ")"
+export PS1="$(print "%B$PromptColor#%b$PromptColor#%B$Black(%b$PromptColor\
+%n\
+%B$PromptColor@%b$PromptColor\
+%m:%L:%?\
+%B$Black)(%B$PromptColor\
+%4c\
+%B$Black)%B$PromptColor>%b$Norm ")"
+
+export RPROMPT="$(print "$PromptColor\[%*\]$Norm")"
+
+export PS2="$(print "$Bold$Black#$Norm$PromptColor#$Bold$PromptColor#>$COLOR4 ")"
 
 
 case $TERM in

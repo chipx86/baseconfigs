@@ -54,6 +54,13 @@ set scrolloff=2
 set iskeyword=@,48-57,_,192-255,-,.,@-@
 set shortmess=atI
 
+" Show the filename and path in the titlebar.
+set title
+
+" Integrate with ack
+set grepprg=ack\ -a
+
+
 "autocmd!
 " Set a nice little type-correction thingy :)
 iab aslo       also
@@ -127,6 +134,9 @@ noremap g, ,
 
 "    If I accidentally hit :W, I want it to translate to :w
 nmap :W :w
+
+" Write a file as root, in case I forgot to sudo to root before editing.
+map :sudow :w !sudo tee %
 
 "    If I hit Control-Z, go to a shell instead of suspending
 map <C-Z> :shell<CR>
