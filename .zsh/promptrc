@@ -22,15 +22,15 @@ else
 	PromptColor=$Cyan
 fi
 
-export PS1="$(print "%B$PromptColor#%b$PromptColor#%B$Black(%b$PromptColor\
+export PS1="$(print "%b$PromptColor\
 %n\
 %B$PromptColor@%b$PromptColor\
-%m:%L:%?\
-%B$Black)(%B$PromptColor\
+%m\
+%B$Black(%B$PromptColor\
 %4c\
 %B$Black)%B$PromptColor>%b$Norm ")"
 
-export RPROMPT="$(print "$PromptColor\[%*\]$Norm")"
+export RPROMPT="$(print "%B$Black\[%b$PromptColor%*%B$Black-%b$PromptColor%L%B$Black-%b$PromptColor%?%B$Black\]$Norm")"
 
 export PS2="$(print "$Bold$Black#$Norm$PromptColor#$Bold$PromptColor#>$COLOR4 ")"
 

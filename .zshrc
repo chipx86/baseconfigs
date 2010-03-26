@@ -40,7 +40,7 @@ source $ZSHRCDIR/stylerc
 ###
 source $ZSHRCDIR/runrc
 
-which autojump
+which autojump >/dev/null 2>&1
 
 if [ "$?" -eq "0" ]; then
 	function preexec() {
