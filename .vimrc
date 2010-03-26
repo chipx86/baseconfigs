@@ -57,6 +57,10 @@ set shortmess=atI
 " Show the filename and path in the titlebar.
 set title
 
+" Integrate with ack
+set grepprg=ack\ -a
+
+
 "autocmd!
 " Set a nice little type-correction thingy :)
 iab aslo       also
