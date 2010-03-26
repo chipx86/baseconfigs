@@ -135,6 +135,9 @@ noremap g, ,
 "    If I accidentally hit :W, I want it to translate to :w
 nmap :W :w
 
+" Write a file as root, in case I forgot to sudo to root before editing.
+map :sudow :w !sudo tee %
+
 "    If I hit Control-Z, go to a shell instead of suspending
 map <C-Z> :shell<CR>
 
