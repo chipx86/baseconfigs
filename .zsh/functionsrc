@@ -10,59 +10,22 @@ function cd() {
 	fi
 }
 
-function dimlights() {
-	local a
-	a=$[($1 / 100) * 22]
-	ppower lights:on
-	ppower lights:dim:$a
-}
-
-function lights() {
-	ppower lights:$1
-}
-
-function tv() {
-	ppower tv:$1
-}
-
-function bedtime() {
-	ppower lights:on
-	ppower monitors:off
-	sleep 30
-	echo "(SayText \"Goodnight, Christian.\")(quit)" | festival_client
-	ppower lights:off
-}
-
 function dmalloc {
 	eval `command dmalloc -b $*`;
 }
 
-function countida {
-	grep "default.[Ii][Dd][Aa]" /var/log/httpd/access_log* | wc -l
-}
+which autojump >/dev/null 2>&1
 
-function rmoldthumbs {
-	for i in .thumbs/*
-	do
-		[ ! -e `basename $i` ] && rm $i
-	done
-}
+if [ "$?" -eq "0" ]; then
+	function preexec() {
+		(autojump -a "$(pwd -P)"&)>/dev/null
+	}
 
-function cvsdiff {
-	cvs -z3 diff -u $* | vim -c "set ft=diff" -
-}
+	alias jumpstat="autojump --stat"
 
-function sfget {
-	wget `echo $* | sed -e "s/prdownloads/telia.dl/g" -e "s/\?download//g"`
-}
+	function j { new_path="$(autojump $@)";if [ -n "$new_path" ]; then echo -e "\\033[31m${new_path}\\033[0m"; cd "$new_path";fi }
+fi
 
-function mutt {
-	print -Pn "\e]0;mutt\a"
-	/usr/bin/mutt
+function calc() {
+	echo $* | bc -l
 }
-
-#function genthumb {
-#	[ ! -e .thumbs ] && mkdir .thumbs
-#	for i in *.JPG *.jpg *.jpeg *.gif *.GIF *.png *.PNG; do
-#		e
-#}
