@@ -1,4 +1,8 @@
-# -*- shell-script -*-
+typeset -ga preexec_functions
+typeset -ga precmd_functions
+typeset -ga chpwd_functions
+setopt prompt_subst
+
 
 # ANSI escapes for colors and attributes.
 Black="%{\e[30m%}"
@@ -12,6 +16,48 @@ Gray="%{\e[37m%}"
 Norm="%{\e[0m%}"
 
 Title="%{\e]2;%}%n@%m %~\a"
+
+
+# Git branch support for prompts
+# Based on: http://www.jukie.net/bart/blog/20080404105620
+export __CURRENT_GIT_BRANCH=
+export __CURRENT_GIT_VARS_INVALID=1
+
+zsh_git_invalidate_vars() {
+	export __CURRENT_GIT_VARS_INVALID=1
+}
+
+zsh_git_compute_vars() {
+	export __CURRENT_GIT_BRANCH="$(parse_git_branch)"
+	export __CURRENT_GIT_VARS_INVALID=
+}
+
+parse_git_branch() {
+	git branch --no-color 2>/dev/null \
+		| sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/'
+}
+
+preexec_functions+='zsh_preexec_update_git_vars'
+zsh_preexec_update_git_vars() {
+	case "$(history $HISTCMD)" in
+		*git*)
+			zsh_git_invalidate_vars
+			;;
+	esac
+}
+
+chpwd_functions+='zsh_chpwd_update_git_vars'
+zsh_chpwd_update_git_vars() {
+	zsh_git_invalidate_vars
+}
+
+get_git_prompt_info() {
+	test -n "$__CURRENT_GIT_VARS_INVALID" && zsh_git_compute_vars
+	if test ! -z $__CURRENT_GIT_BRANCH; then
+		print "%b$PromptColor$__CURRENT_GIT_BRANCH%B$Black-"
+	fi
+}
+
 
 # A rather boring prompt.
 #export PS1="%n@%m%# "
@@ -30,7 +76,7 @@ export PS1="$(print "%b$PromptColor\
 %4c\
 %B$Black)%B$PromptColor>%b$Norm ")"
 
-export RPROMPT="$(print "%B$Black\[%b$PromptColor%*%B$Black-%b$PromptColor%L%B$Black-%b$PromptColor%?%B$Black\]$Norm")"
+export RPROMPT='$(print "%B$Black\[$(get_git_prompt_info)%b$PromptColor%*%B$Black-%b$PromptColor%L%B$Black-%b$PromptColor%?%B$Black\]$Norm")'
 
 export PS2="$(print "$Bold$Black#$Norm$PromptColor#$Bold$PromptColor#>$COLOR4 ")"
 
@@ -40,3 +86,6 @@ case $TERM in
 		precmd () {print -Pn "\e]0;%n@%m: %~\a"}
 		;;
 esac
+
+
+# vim:ft=zsh:
