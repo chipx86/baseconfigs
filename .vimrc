@@ -108,6 +108,10 @@ noremap <C-G> 2<C-G>
 nnoremap <C-e> <C-e><C-e><C-e>
 nnoremap <C-y> <C-y><C-y><C-y>
 
+" Make < and > block indent shifting not lose selection
+vnoremap < <gv
+vnoremap > >gv
+
 if !has("gui_running")
   set background=dark
 else
