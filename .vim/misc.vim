@@ -62,3 +62,5 @@ au BufNewFile,BufReadPost,WinEnter * match WhitespaceEOL /^ \+\|\s\+$/
 au BufNewFile,BufReadPost,WinEnter * highlight RedundantSpaces ctermbg=red guibg=red
 au BufNewFile,BufReadPost,WinEnter * match RedundantSpaces /\s\+$\| \+\ze\t/
 
+
+let g:Gitv_OpenHorizontal = 0
