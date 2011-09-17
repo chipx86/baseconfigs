@@ -1,10 +1,11 @@
+filetype plugin on
+
 let python_highlight_all=1
 
 au Syntax php so $HOME/.vim/syntax/php.vim
 au Syntax php3 so $HOME/.vim/syntax/php.vim
 au Syntax eruby so $HOME/.vim/ftplugin/eruby.vim
 au Syntax befunge so $HOME/.vim/ftplugin/befunge.vim
-au Syntax c,cpp so $HOME/.vim/syntax/c.vim
 au Syntax python so $HOME/.vim/python.vim
 
 au BufNewFile,BufRead *.xsd,*.rdf,*.rss,*.ihtml setf xml
@@ -13,11 +14,11 @@ au BufNewFile,BufRead *.S,*.s,*.ASM             call <SID>FTasm()
 au BufNewFile,BufRead *.cgi  if getline(1) =~ "#!.*perl"| setf perl | endif
 au BufNewFile,BufRead *.rcp                     setf config
 au BufNewFile,BufRead *.java source $HOME/.vim/java.vim
-au BufNewFile,BufRead *.c,*.cpp,*.h,*.hh,*.hpp,*.cxx,*.cc  source $HOME/.vim/c.vim
+"au BufNewFile,BufRead *.c,*.cpp,*.h,*.hh,*.hpp,*.cxx,*.cc  source $HOME/.vim/c.vim
 au BufNewFile,BufRead *.cs  source $HOME/.vim/csharp.vim
 au BufNewFile,BufRead svn-commit.* setf svn | set noai et
 
-au FileType c,cpp  set si    sw=4 ts=4 | source $HOME/.vim/c.vim
+"au FileType c,cpp  set si    sw=4 ts=4 | source $HOME/.vim/c.vim
 au FileType cs     set si    sw=4 ts=4 | source $HOME/.vim/csharp.vim
 "au FileType cpp    set si    sw=4 ts=4 | source $HOME/.vim/c.vim
 au FileType dtd    set ai et sw=2 ts=2
