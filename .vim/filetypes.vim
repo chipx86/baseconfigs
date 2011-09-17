@@ -13,7 +13,6 @@ au BufNewFile,BufRead udiprops.txt              setf config
 au BufNewFile,BufRead *.S,*.s,*.ASM             call <SID>FTasm()
 au BufNewFile,BufRead *.cgi  if getline(1) =~ "#!.*perl"| setf perl | endif
 au BufNewFile,BufRead *.rcp                     setf config
-au BufNewFile,BufRead *.java source $HOME/.vim/java.vim
 "au BufNewFile,BufRead *.c,*.cpp,*.h,*.hh,*.hpp,*.cxx,*.cc  source $HOME/.vim/c.vim
 au BufNewFile,BufRead *.cs  source $HOME/.vim/csharp.vim
 au BufNewFile,BufRead svn-commit.* setf svn | set noai et
@@ -23,7 +22,6 @@ au FileType cs     set si    sw=4 ts=4 | source $HOME/.vim/csharp.vim
 "au FileType cpp    set si    sw=4 ts=4 | source $HOME/.vim/c.vim
 au FileType dtd    set ai et sw=2 ts=2
 au FileType html   set ai et sw=2 ts=2
-"au FileType java   set si    sw=4 ts=4 | source $HOME/.vim/java.vim
 au FileType lisp   set    et           lisp
 au FileType mail   set                 tw=70
 au FileType perl   set ai    sw=4 ts=4
