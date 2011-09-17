@@ -22,7 +22,7 @@ au BufNewFile,BufRead svn-commit.* setf svn | set noai et
 au FileType cs     set si    sw=4 ts=4 | source $HOME/.vim/csharp.vim
 "au FileType cpp    set si    sw=4 ts=4 | source $HOME/.vim/c.vim
 au FileType dtd    set ai et sw=2 ts=2
-au FileType html   set ai et sw=2 ts=2 | source $HOME/.vim/html.vim
+au FileType html   set ai et sw=2 ts=2
 "au FileType java   set si    sw=4 ts=4 | source $HOME/.vim/java.vim
 au FileType lisp   set    et           lisp
 au FileType mail   set                 tw=70

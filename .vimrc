@@ -251,7 +251,6 @@ endif
 
 "    Include some files
 source $HOME/.vim/misc.vim
-source $HOME/.vim/html.vim
 source $HOME/.vim/filetypes.vim
 source $HOME/.vim/folding.vim
 source $HOME/.vim/tabs.vim
