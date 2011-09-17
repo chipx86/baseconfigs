@@ -42,10 +42,6 @@ imap `CAP <ESC>mzB~`za
 map <TAB>J Jwi<BS><CR><ESC>
 " map ~J <TAB>J
 
-" Load some syntax files here
-"au Syntax changelog so $HOME/.vim/changelog.vim
-"au BufNewFile,BufRead ChangeLog,changelog		set ft=changelog
-
 " Set the colors
 colorscheme my-default
 
