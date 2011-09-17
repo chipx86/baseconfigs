@@ -17,12 +17,9 @@ au BufNewFile,BufRead *.c,*.cpp,*.h,*.hh,*.hpp,*.cxx,*.cc  source $HOME/.vim/c.v
 au BufNewFile,BufRead *.cs  source $HOME/.vim/csharp.vim
 au BufNewFile,BufRead svn-commit.* setf svn | set noai et
 
-au FileType asm    set ai    sw=8 ts=8 | source $HOME/.vim/asm.vim
 au FileType c,cpp  set si    sw=4 ts=4 | source $HOME/.vim/c.vim
 au FileType cs     set si    sw=4 ts=4 | source $HOME/.vim/csharp.vim
-au FileType cobol  set ai et sw=4 ts=4
 "au FileType cpp    set si    sw=4 ts=4 | source $HOME/.vim/c.vim
-au FileType cvs    set noai et sw=4 ts=4 tw=75
 au FileType dtd    set ai et sw=2 ts=2
 au FileType html   set ai et sw=2 ts=2 | source $HOME/.vim/html.vim
 "au FileType java   set si    sw=4 ts=4 | source $HOME/.vim/java.vim
@@ -30,8 +27,6 @@ au FileType lisp   set    et           lisp
 au FileType mail   set                 tw=70
 au FileType perl   set ai    sw=4 ts=4
 au FileType php    set ai    sw=4 ts=4 | let php_minlines=1000 | syntax sync lines=500
-au FileType rebol  set ai    sw=4 ts=4
-au FileType scheme set ai et sw=2 ts=2 lisp
 au FileType xml    set ai et sw=1 ts=1
 au FileType python set ai et sw=4 ts=4 smartindent sta sts=4 cinwords=if,elif,else,for,while,try,except,finally,def,class omnifunc=pythoncomplete#Complete
 
