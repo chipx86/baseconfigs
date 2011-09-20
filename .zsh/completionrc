@@ -11,8 +11,7 @@ compctl -g '*.ps *.pdf *(/)' ghostview
 compctl -g '*.(mp3|mp2|mp1|MP3) *(/) .*(/) *(@)' mpg mpg123 splay amp
 compctl -g '*.(ogg|OGG) *(/) .*(/) *(@)' ogg123
 compctl -g '*.(mp3|mp2|mp1|MP3|ogg|OGG) *(/) .*(/) *(@)' xmms
-compctl -g '*.(html|htm|shtml) *(/)' appletviewer galeon lynx w3m
-compctl -g '*(/) .*(/) *(@) .*(@) *.(jpg|JPG|gif|GIF|png|PNG|jpeg|JPEG|xpm|XPM|bmp|BMP|xcf|XCF)' ee ee2 feh
+compctl -g '*(/) .*(/) *(@) .*(@) *.(jpg|JPG|gif|GIF|png|PNG|jpeg|JPEG|xpm|XPM|bmp|BMP|xcf|XCF)' feh
 compctl -g '*(/) .*(/) *.java' javac
 compctl -g '*.y' bison yacc
 compctl -g '*.l' lex flex
@@ -27,28 +26,19 @@ compctl -g '*.(bz2|tbz)' bunzip2
 compctl -f -x 's[-]' -k '(f R)' - 'S[.]' -f - 'n[-1,.]'  - 'c[-1,-]' -u -S '.' - 'p[1]' -u -S '.' -- chown
 compctl -caF type whence which where
 
-#fpath=($fpath ~/.zsh/compdef)
-#autoload -U compinit
-#compinit
-
 
 #--------------------------------------------------------------------------
 # Ignore these during completion
 #==========================================================================
-#fignore=(.o .c~ .old .pro .bak .bak.* .bk<1-100>)
 fignore=(.o .c~ .old .bak .class)
 
 
 #--------------------------------------------------------------------------
 # Completion for hosts
 #==========================================================================
-hosts=(`hostname` portaldesign.net virtualtimes.net upload.sourceforge.net
-       ocis.net prdownload.sourceforge.net ftp.portaldesign.net ftp.redhat.com
-	   contrib.redhat.com freedesktop.org sshgate)
+#hosts=(`hostname` ...)
+#sshhosts=(user@host)
 
-sshhosts=(portalde@portaldesign.net chipx86@shell1.sourceforge.net
-          chipx86@minoxml.cx chipx86@trinity.lilo.cx chipx86@kiyone.lilo.cx
-		  chipx86@gnupdate.org)
 
 #--------------------------------------------------------------------------
 # Enable completion for hsots
@@ -56,7 +46,8 @@ sshhosts=(portalde@portaldesign.net chipx86@shell1.sourceforge.net
 compctl -k hosts -f rlogin ncftp
 compctl -k hosts + ftp ping rwho rup xping traceroute nslookup telnet
 
-compctl -k sshhosts + ssh ssh1
+compctl -k sshhosts + ssh ssh
+
 
 #--------------------------------------------------------------------------
 # Commands expecting command names or filenames.

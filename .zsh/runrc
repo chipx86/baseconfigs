@@ -1,9 +1,3 @@
 # -*- shell-script -*-
 
-## Make Things All Right
-#stty erase ^?
-
 limit coredumpsize 500M
-
-# Run fortune (bad place for this?)
-#/usr/games/fortune
