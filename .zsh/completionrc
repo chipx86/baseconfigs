@@ -5,19 +5,7 @@
 #==========================================================================
 compctl -g '*(/) .*(/) *(@) .*(@)' cd pushd
 compctl -g '*(/)' rmdir dircmp
-compctl -g '*.tex *(/)' tex latex tex2ps
-compctl -g '*.dvi *(/)' xdvi dvips
-compctl -g '*.ps *.pdf *(/)' ghostview
-compctl -g '*.(mp3|mp2|mp1|MP3) *(/) .*(/) *(@)' mpg mpg123 splay amp
-compctl -g '*.(ogg|OGG) *(/) .*(/) *(@)' ogg123
-compctl -g '*.(mp3|mp2|mp1|MP3|ogg|OGG) *(/) .*(/) *(@)' xmms
-compctl -g '*(/) .*(/) *(@) .*(@) *.(jpg|JPG|gif|GIF|png|PNG|jpeg|JPEG|xpm|XPM|bmp|BMP|xcf|XCF)' feh
-compctl -g '*(/) .*(/) *.java' javac
-compctl -g '*.y' bison yacc
-compctl -g '*.l' lex flex
 compctl -x 'p[1]' -k hosts -- remsh ping telnet traceroute
-compctl -g '*.(gz|Z|z|zip|ZIP)' + -g '*(-/)' zcat gzcat zmore
-compctl -g '*(/) .*(/) *.arj' unarj
 compctl -g '*(/) .*(/) *.(zip|ZIP)' unzip
 compctl -g '^*.(gz|Z|z|zip|taz|tgz)' gzip
 compctl -g '*.(gz|Z|z|zip|taz|tgz)' gunzip zfile ztouch
