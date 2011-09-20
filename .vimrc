@@ -32,6 +32,7 @@ set splitbelow
 set statusline=[%{ListedBufNumber()}]\ %f\ %(\ %M%R%H)%)\ ascii(%b)\ hex(0x%B)%=Pos=<%l\,%c%V>\ %P
 set dictionary=/usr/dict/words
 set magic
+set mouse=a
 set hidden
 set listchars=tab:>>,trail:?,eol:$
 set wildignore=*.aux,*.bak,*.dvi,*.gz,*.idx,*.log,*.ps,*.swp,*.tar,*.zip,*.old,*.lo,*.o,*.a,*.la,*.class
