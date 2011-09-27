@@ -1,0 +1,8 @@
+export HTTP_PROXY=http://proxy.vmware.com:3128/
+export http_proxy="$HTTP_PROXY"
+export FTP_PROXY="$HTTP_PROXY"
+export ftp_proxy="$HTTP_PROXY"
+export P4CONFIG=.p4config
+export P4CMD=/home/christian/bin/p4
+export P4DIFF='diff -druN'
+export PATH="$HOME/bin:/build/apps/bin:$PATH"
