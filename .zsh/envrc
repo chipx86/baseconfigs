@@ -1,88 +1,28 @@
 # -*- shell-script -*-
 
-export FIREFOX_DSP=aoss
-
-export CVS_RSH=ssh
-
 # ls
 export LS_OPTIONS="--color=auto -FB -T 0"
 export GREP_OPTIONS="--color=auto"
 export GREP_COLOR="1;33"
 
-export PILOTRATE=115200
-
-export MONO_GAC_PREFIX=/opt/gnome
 
 # Compilation
-export DISTCC_HOSTS="localhost"
-#export DISTCC_HOSTS="localhost trinity"
-export CCACHE_PATH=/usr/bin
-#export CCACHE_PATH=/usr/bin
-export DISTCC_PATH=/usr/bin
 export MAKEFLAGS="-j2"
+
 
 ## History
 HISTSIZE=1000
 HISTFILE=~/.zsh_history
 SAVEHIST=$HISTSIZE
 
+
 ## Set up pretty ls colors
-#export LS_COLORS="*.bz2=01;31"
 eval `dircolors ~/.dircolorsrc`
 
-## Lynx
-export LYNX_CFG=~/.lynxrc
-
-#export MOZILLA_FIVE_HOME=/usr/lib/mozilla
-
-export PYTHONPATH=/opt/gnome/lib/python2.2/site-packages
-
-export MONO_PATH=/opt/gnome/lib
-
-export LD_LIBRARY_PATH=/opt/gnome/lib:/usr/local/lib:/opt/mozilla/lib
-
-## Autoconf/automake
-#export CC="gcc"
-#export CFLAGS="-O6 -march=pentiumpro"
-#export CXXFLAGS=$CFLAGS
-#export ACLOCAL_FLAGS="-I /usr/local/share/aclocal"
-
-export ACLOCAL_PATH="/usr/share/aclocal:/usr/local/share/aclocal:/opt/gnome/share/aclocal"
 
 ## Editor of the month
 export EDITOR=vim
 
-## CVS
-#export CVSROOT=$HOME/cvs/local
-
-## CMUCL
-#export CMUCLLIB=/usr/local/lib
-
-# EsounD
-#export ESPEAKER=localhost
-
-# JDK 1.2.2
-#export THREADS_FLAG=native
-#export CLASSPATH=/usr/lib/pgsql/jdbc6.5-1.2.jar:.
-
-# Qt 2.2.0
-#export QTDIR=/usr/local/packages/qt-2.2.0
 
 ## Path
-export PATH="/home/chipx86/bin:/opt/gnome/bin:$PATH:/usr/local/enlightenment/bin:/usr/X11R6/bin:/usr/local/java/bin:/usr/local/gnu/bin"
-#DEFAULT_PATH=/bin:/usr/bin:/usr/X11R6/bin:/usr/local/bin
-#export PATH=~/bin:$DEFAULT_PATH:/sbin/:/usr/sbin/:/usr/bin/mh/:/usr/local/packages/key65e/bin:/usr/local/packages/jdk1.2.2/bin:$QTDIR/bin
-
-export CLASSPATH="/usr/local/java/classes/sax2.jar"
-
-#
-# Use Japanese
-#
-#export LC_ALL=ja_JP.eucJP
-#export LC_MESSAGES=en_US
-
-#. /etc/profile.d/ccache.sh
-
-export GOOGLE_WEB_API_KEY="z2mCxJdQFHI6ykZLrDwJBrGzL0dMi6"
-
-export EMAIL=chipx86@chipx86.com
+export PATH="$HOME/bin:$PATH"

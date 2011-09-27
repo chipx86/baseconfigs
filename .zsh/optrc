@@ -10,6 +10,3 @@ setopt extended_glob    # Allow extended stuff in globs (yeah...)
 # Also.
 #ulimit -c 0             # Disable core dumps
 ulimit -c unlimited
-
-# This might not always help
-#stty erase ^?

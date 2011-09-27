@@ -10,10 +10,6 @@ function cd() {
 	fi
 }
 
-function dmalloc {
-	eval `command dmalloc -b $*`;
-}
-
 which autojump >/dev/null 2>&1
 
 if [ "$?" -eq "0" ]; then

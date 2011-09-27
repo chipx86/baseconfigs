@@ -32,6 +32,7 @@ set splitbelow
 set statusline=[%{ListedBufNumber()}]\ %f\ %(\ %M%R%H)%)\ ascii(%b)\ hex(0x%B)%=Pos=<%l\,%c%V>\ %P
 set dictionary=/usr/dict/words
 set magic
+set mouse=a
 set hidden
 set listchars=tab:>>,trail:?,eol:$
 set wildignore=*.aux,*.bak,*.dvi,*.gz,*.idx,*.log,*.ps,*.swp,*.tar,*.zip,*.old,*.lo,*.o,*.a,*.la,*.class
@@ -107,6 +108,10 @@ noremap <C-G> 2<C-G>
 " Make Control-E/Y viewport scrolling move 3 lines at a time.
 nnoremap <C-e> <C-e><C-e><C-e>
 nnoremap <C-y> <C-y><C-y><C-y>
+
+" Make < and > block indent shifting not lose selection
+vnoremap < <gv
+vnoremap > >gv
 
 if !has("gui_running")
   set background=dark
@@ -247,10 +252,6 @@ endif
 
 "    Include some files
 source $HOME/.vim/misc.vim
-source $HOME/.vim/dirs.vim
-source $HOME/.vim/html.vim
-source $HOME/.vim/phpstuff.vim
 source $HOME/.vim/filetypes.vim
 source $HOME/.vim/folding.vim
-source $HOME/.vim/email.vim
 source $HOME/.vim/tabs.vim
