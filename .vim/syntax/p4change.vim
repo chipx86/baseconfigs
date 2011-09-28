@@ -33,7 +33,8 @@ syn region p4changeFields
 syn region p4changeFields
 	\ start=/^Files:$/
 	\ end=/^$/
-	\ contains=p4changeFieldName,p4changeFile,p4changeFileStatus
+	\ contains=p4changeFieldName,p4changeFileAdd,p4changeFileEdit,
+	          \p4changeFileDelete,p4changeFileBranch
 
 syn region p4changeSubField oneline
 	\ start=/\t\(QA Notes\|Testing Done\|Documentation Notes\|
@@ -43,8 +44,10 @@ syn region p4changeSubField oneline
 syn region p4changeFieldsFold start=/^# A Perforce Change Specification/ end=/\nDescription:$/me=s keepend transparent fold contains=p4changeComment,p4changeTopFields
 
 syn match p4changeLogImport contained /\*\*\* git-changeset log import/
-syn match p4changeFile contained /^\t\/\/[^#]\+/
-syn match p4changeFileStatus contained /# \(edit\|delete\|add\|branch\)/
+syn match p4changeFileAdd contained /^\t\/\/[^#]\+\t# add$/ms=s+1
+syn match p4changeFileEdit contained /^\t\/\/[^#]\+\t# edit$/ms=s+1
+syn match p4changeFileDelete contained /^\t\/\/[^#]\+\t# delete$/ms=s+1
+syn match p4changeFileBranch contained /^\t\/\/[^#]\+\t# branch$/ms=s+1
 syn match p4changeNumber /[0-9]\+/
 syn match p4changeFieldName contained /^[A-Z][^:]\+:/
 syn match p4changeSubFieldName contained /\t[A-Z][^:]\+:/
@@ -53,7 +56,10 @@ hi def link p4changeValue String
 hi def link p4changeComment Comment
 hi def link p4changeFieldName Keyword
 hi def link p4changeSubFieldName Keyword
-hi def link p4changeFile Type
+hi def link p4changeFileAdd Identifier
+hi def link p4changeFileDelete Special
+hi def link p4changeFileEdit PreProc
+hi def link p4changeFileBranch Identifier
 hi def link p4changeFileStatus Constant
 hi def link p4changeNumber Number
 hi def link p4changeLogImport TODO
