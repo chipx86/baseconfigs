@@ -17,6 +17,7 @@ map <buffer> ;T :s/^[ <Tab>]*//<ESC>O/<ESC>74a*<ESC>A/<ESC>jI/** @name <ESC>o<HO
 "vmap <buffer> ;T <ESC>:'<,'>s/^/ * /<CR>'<O<C-U>/<ESC>74a*<ESC>'>o<C-U><HOME><ESC>C <ESC>74a*<ESC>A/<ESC>'<j0WW
 
 setlocal cinkeys=0{,0},:,0#,!^F,o,O
+setlocal si
 
 setlocal cindent
 setlocal cinoptions=(0,t0
