@@ -26,3 +26,5 @@ export EDITOR=vim
 
 ## Path
 export PATH="$HOME/bin:$PATH"
+
+export no_proxy=eng.vmware.com,localhost,127.0.0.1
