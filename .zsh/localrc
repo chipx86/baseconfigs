@@ -5,4 +5,4 @@ export ftp_proxy="$HTTP_PROXY"
 export P4CONFIG=.p4config
 export P4CMD=/home/christian/bin/p4
 export P4DIFF='diff -druN'
-export PATH="$HOME/bin:/build/apps/bin:$PATH"
+export PATH="$HOME/bin:$PATH:/build/apps/bin"
