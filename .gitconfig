@@ -4,7 +4,7 @@
 	branch = auto
 [user]
 	name = Christian Hammond
-	email = chipx86@chipx86.com
+	email = christian@vmware.com
 [alias]
 	co = checkout
 	stat = status
