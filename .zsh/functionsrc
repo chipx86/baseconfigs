@@ -25,3 +25,7 @@ fi
 function calc() {
 	echo $* | bc -l
 }
+
+function pycd() {
+	builtin cd `pywhere "$@"`
+}
