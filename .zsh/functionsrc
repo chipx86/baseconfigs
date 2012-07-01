@@ -25,3 +25,11 @@ fi
 function calc() {
 	echo $* | bc -l
 }
+
+function pycd() {
+	builtin cd `pywhere "$@"`
+}
+
+function buildroot() {
+	builtin source ~/buildroots/$1/bin/activate
+}
