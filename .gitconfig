@@ -12,3 +12,4 @@
 	pat = !sh -c 'git push --tags origin && git push --tags chipx86'
 	p = !sh -c 'git push origin'
 	pt = !sh -c 'git push --tags origin'
+	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --
