@@ -43,6 +43,9 @@ set sw=4
 set ts=4
 set suffixes=.aux,.bak,.dvi,.gz,.idx,.log,.ps,.swp,.tar,.zip,.o,.la,.lo,.lib,.a,.so
 
+" Use 256-colors
+set t_Co=256
+
 " Always use the current buffer's directory as the active directory.
 set autochdir
 
@@ -215,3 +218,8 @@ source $HOME/.vim/tabs.vim
 
 " Load any and all plugins registered with pathogen.
 call pathogen#infect()
+
+" vim-powerline configuration
+let g:Powerline_symbols = 'fancy'
+call Pl#Theme#InsertSegment('charcode', 'after', 'filetype')
+set guifont="DejaVu Sans Mono for Powerline"
