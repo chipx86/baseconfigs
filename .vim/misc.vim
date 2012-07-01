@@ -43,7 +43,10 @@ map <TAB>J Jwi<BS><CR><ESC>
 " map ~J <TAB>J
 
 " Set the colors
-colorscheme my-default
+colorscheme desert256
+
+" Set the line numbers to be dark gray
+highlight LineNr term=bold cterm=NONE ctermfg=DarkGrey ctermbg=NONE gui=NONE guifg=DarkGrey guibg=NONE
 
 
 "
