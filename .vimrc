@@ -43,6 +43,9 @@ set sw=4
 set ts=4
 set suffixes=.aux,.bak,.dvi,.gz,.idx,.log,.ps,.swp,.tar,.zip,.o,.la,.lo,.lib,.a,.so
 
+" Use 256-colors
+set t_Co=256
+
 " Always use the current buffer's directory as the active directory.
 set autochdir
 
@@ -215,3 +218,20 @@ source $HOME/.vim/tabs.vim
 
 " Load any and all plugins registered with pathogen.
 call pathogen#infect()
+
+" vim-powerline configuration
+let g:Powerline_symbols = 'fancy'
+call Pl#Theme#InsertSegment('charcode', 'after', 'filetype')
+set guifont="DejaVu Sans Mono for Powerline"
+
+" neocomplcache configuration
+let g:neocomplcache_enable_at_startup = 1
+" <CR>: close popup and save indent.
+inoremap <expr><CR>  neocomplcache#smart_close_popup() . "\<CR>"
+" <TAB>: completion.
+inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+" <C-h>, <BS>: close popup and delete backword char.
+inoremap <expr><C-h> neocomplcache#smart_close_popup()."\<C-h>"
+inoremap <expr><BS> neocomplcache#smart_close_popup()."\<C-h>"
+inoremap <expr><C-y>  neocomplcache#close_popup()
+inoremap <expr><C-e>  neocomplcache#cancel_popup()
