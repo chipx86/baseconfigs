@@ -49,6 +49,9 @@ set t_Co=256
 " Always use the current buffer's directory as the active directory.
 set autochdir
 
+" Use relative line numbers
+set relativenumber
+
 " Make searches case-insensitive if the search terms are all lower-case.
 set ignorecase
 set smartcase
