@@ -2,20 +2,44 @@ typeset -ga preexec_functions
 typeset -ga precmd_functions
 typeset -ga chpwd_functions
 setopt prompt_subst
+autoload -U colors && colors
 
 
 # ANSI escapes for colors and attributes.
-Black="%{\e[30m%}"
-Blue="%{\e[34m%}"
-Green="%{\e[32m%}"
-Cyan="%{\e[36m%}"
-Red="%{\e[31m%}"
-Purple="%{\e[35m%}"
-Brown="%{\e[33m%}"
-Gray="%{\e[37m%}"
-Norm="%{\e[0m%}"
+Black="%{[30m%}"
+Blue="%{[34m%}"
+Green="%{[32m%}"
+Cyan="%{[36m%}"
+Red="%{[31m%}"
+Purple="%{[35m%}"
+Brown="%{[33m%}"
+Gray="%{[37m%}"
+Norm="%{[0m%}"
+
+N_LINE=236
+C_LINE="%{[48;5;0;38;5;${N_LINE}m%}"
+C_BRANCH_ICON="%{[38;5;246m%}"
+C_BRANCH="%{[38;5;245;48;5;235m%}"
+C_BRANCH_START="%{[38;5;235m%}"
+C_PWD="%{[0;48;5;${N_LINE};38;5;254m%}"
+C_TIME_START="%{[38;5;239m%}"
+C_TIME="%{[38;5;250;48;5;239m%}"
 
 Title="%{\e]2;%}%n@%m %~\a"
+
+if [[ $UID -eq 0 ]]; then
+	C_USER="%{[0;38;5;231;48;5;88m%}"
+	C_USER_END="%{[1;38;5;88;48;5;${N_LINE}m%}"
+else
+	C_USER="%{[0;38;5;117;48;5;24m%}"
+	C_USER_END="%{[1;38;5;24;48;5;${N_LINE}m%}"
+fi
+
+if [[ -z $SSH_CLIENT ]]; then
+	USER_FMT="%n"
+else
+	USER_FMT="%n@%m"
+fi
 
 
 # Git branch support for prompts
@@ -54,7 +78,7 @@ zsh_chpwd_update_git_vars() {
 get_git_prompt_info() {
 	test -n "$__CURRENT_GIT_VARS_INVALID" && zsh_git_compute_vars
 	if test ! -z $__CURRENT_GIT_BRANCH; then
-		print "%b$PromptColor$__CURRENT_GIT_BRANCH%B$Black-"
+		print "${C_BRANCH_START}⮂${C_BRANCH} ${C_BRANCH_ICON}${__CURRENT_GIT_BRANCH} "
 	fi
 }
 
@@ -62,21 +86,9 @@ get_git_prompt_info() {
 # A rather boring prompt.
 #export PS1="%n@%m%# "
 
-if [[ "$USER" == "root" ]]; then
-	PromptColor=$Brown
-else
-	PromptColor=$Cyan
-fi
+export PS1="${C_USER} ${USER_FMT} ${C_LINE}${C_USER_END}⮀ ${C_PWD}%4c ${C_LINE}⮀ "
 
-export PS1="$(print "%b$PromptColor\
-%n\
-%B$PromptColor@%b$PromptColor\
-%m\
-%B$Black(%B$PromptColor\
-%4c\
-%B$Black)%B$PromptColor>%b$Norm ")"
-
-export RPROMPT='$(print "%B$Black\[$(get_git_prompt_info)%b$PromptColor%*%B$Black-%b$PromptColor%L%B$Black-%b$PromptColor%?%B$Black\]$Norm")'
+export RPROMPT='$(print "${C_LINE}$(get_git_prompt_info)${C_TIME_START}⮂${C_TIME} %*-%L-%? "%{$reset_color%})'
 
 export PS2="$(print "$Bold$Black#$Norm$PromptColor#$Bold$PromptColor#>$COLOR4 ")"
 
