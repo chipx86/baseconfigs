@@ -4,6 +4,3 @@
 [submodule ".vim/bundle/neocomplcache"]
 	path = .vim/bundle/neocomplcache
 	url = git://github.com/Shougo/neocomplcache.git
-[submodule ".vim/bundle/numbers"]
-	path = .vim/bundle/numbers
-	url = git://github.com/myusuf3/numbers.vim.git
