@@ -224,7 +224,12 @@ call pathogen#infect()
 
 " vim-powerline configuration
 let g:Powerline_symbols = 'fancy'
+let g:Powerline_stl_path_style = "filename"
+call Pl#Theme#InsertSegment(['raw.buffernum', '%n'], 'after', 'mode_indicator')
 call Pl#Theme#InsertSegment('charcode', 'after', 'filetype')
+call Pl#Theme#RemoveSegment('fileencoding')
+call Pl#Theme#RemoveSegment('filetype')
+call Pl#Theme#RemoveSegment('fileformat')
 set guifont="DejaVu Sans Mono for Powerline"
 
 " neocomplcache configuration
