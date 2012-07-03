@@ -33,3 +33,8 @@ function pycd() {
 function buildroot() {
 	builtin source ~/buildroots/$1/bin/activate
 }
+
+# Limit auto-completion for git, so things aren't super slow.
+__git_files () {
+    _wanted files expl 'local files' _files
+}
