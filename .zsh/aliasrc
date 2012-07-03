@@ -28,3 +28,5 @@ alias cd/='cd /'
 
 
 alias br=buildroot
+
+alias tmux="tmux -2"
