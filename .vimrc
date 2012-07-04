@@ -248,3 +248,8 @@ inoremap <expr><C-e>  neocomplcache#cancel_popup()
 " gundo
 nnoremap <F5> :GundoToggle<CR>
 nnoremap \g :GundoToggle<CR>
+
+" NERD Commenter
+let g:NERDSpaceDelims = 1
+let g:NERDCommentWholeLinesInVMode = 1
+let g:NERDCompactSexyComs = 1
