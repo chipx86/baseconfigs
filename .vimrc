@@ -221,6 +221,7 @@ source $HOME/.vim/tabs.vim
 
 " Load any and all plugins registered with pathogen.
 call pathogen#infect()
+call pathogen#helptags()
 
 " vim-powerline configuration
 let g:Powerline_symbols = 'fancy'
