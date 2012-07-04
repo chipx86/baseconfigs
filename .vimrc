@@ -35,7 +35,7 @@ set magic
 set mouse=a
 set hidden
 set listchars=tab:>>,trail:?,eol:$
-set wildignore=*.aux,*.bak,*.dvi,*.gz,*.idx,*.log,*.ps,*.swp,*.tar,*.zip,*.old,*.lo,*.o,*.a,*.la,*.class
+set wildignore=*.aux,*.bak,*.dvi,*.gz,*.idx,*.log,*.ps,*.swp,*.tar,*.zip,*.old,*.lo,*.o,*.a,*.la,*.class,.*.sw*,*.pyc
 set ttyfast
 set wildmenu
 set noincsearch
@@ -253,3 +253,7 @@ nnoremap \g :GundoToggle<CR>
 let g:NERDSpaceDelims = 1
 let g:NERDCommentWholeLinesInVMode = 1
 let g:NERDCompactSexyComs = 1
+
+" CtrlP
+let g:ctrlp_custom_ignore = '^build$'
+nnoremap <C-b> :CtrlPBuffer<CR>
