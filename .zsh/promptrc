@@ -88,7 +88,7 @@ get_git_prompt_info() {
 # A rather boring prompt.
 #export PS1="%n@%m%# "
 
-export PS1="${C_USER} ${USER_FMT} ${C_LINE}${C_USER_END}⮀ ${C_PWD}%4c ${C_LINE_END}⮀ "
+export PS1="${C_USER} ${USER_FMT} ${C_LINE}${C_USER_END}⮀ ${C_PWD}%4c ${C_LINE_END}⮀ %{$reset_color%}"
 
 export RPROMPT='$(print "${C_LINE_START}$(get_git_prompt_info)${C_TIME_START}⮂${C_TIME} %*-%L-%? "%{$reset_color%})'
 
