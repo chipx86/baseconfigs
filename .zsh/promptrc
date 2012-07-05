@@ -5,6 +5,10 @@ setopt prompt_subst
 autoload -U colors && colors
 
 
+# Disable the virtualenv prompt additions, since we set them ourselves
+export VIRTUAL_ENV_DISABLE_PROMPT=1
+
+
 # ANSI escapes for colors and attributes.
 Black="%{[30m%}"
 Blue="%{[34m%}"
@@ -30,12 +34,20 @@ C_LINE_END="%{[49;38;5;${N_LINE}m%}"
 Title="%{\e]2;%}%n@%m %~\a"
 
 if [[ $UID -eq 0 ]]; then
-	C_USER="%{[0;38;5;231;48;5;88m%}"
-	C_USER_END="%{[1;38;5;88;48;5;${N_LINE}m%}"
+	C_USER_FG=231
+	C_USER_BG=88
 else
-	C_USER="%{[0;38;5;117;48;5;24m%}"
-	C_USER_END="%{[1;38;5;24;48;5;${N_LINE}m%}"
+	C_USER_FG=117
+	C_USER_BG=24
 fi
+
+C_USER="%{[0;38;5;${C_USER_FG};48;5;${C_USER_BG}m%}"
+C_USER_END="%{[1;38;5;${C_USER_BG};48;5;${N_LINE}m%}"
+
+C_VIRTUALENV_FG=189
+C_VIRTUALENV_BG=55
+C_VIRTUALENV_START="%{[38;5;${C_VIRTUALENV_FG};48;5;${C_VIRTUALENV_BG}m%}"
+C_VIRTUALENV_END="%{[38;5;${C_VIRTUALENV_BG};48;5;${C_USER_BG}m%}"
 
 if [[ -z $SSH_CLIENT ]]; then
 	USER_FMT="%n"
@@ -84,11 +96,23 @@ get_git_prompt_info() {
 	fi
 }
 
+get_virtualenv_prompt_info() {
+	if test -z $VIRTUAL_ENV; then
+		export __CURRENT_VIRTUALENV=
+	else
+		export __CURRENT_VIRTUALENV=`basename "$VIRTUAL_ENV"`
+	fi
+
+	if test ! -z $__CURRENT_VIRTUALENV; then
+		print "${C_VIRTUALENV_START} ${__CURRENT_VIRTUALENV} ${C_VIRTUALENV_END}⮀"
+	fi
+}
+
 
 # A rather boring prompt.
 #export PS1="%n@%m%# "
 
-export PS1="${C_USER} ${USER_FMT} ${C_LINE}${C_USER_END}⮀ ${C_PWD}%4c ${C_LINE_END}⮀ %{$reset_color%}"
+export PS1='$(print "$(get_virtualenv_prompt_info)${C_USER} ${USER_FMT} ${C_LINE}${C_USER_END}⮀ ${C_PWD}%4c ${C_LINE_END}⮀ %{$reset_color%}")'
 
 export RPROMPT='$(print "${C_LINE_START}$(get_git_prompt_info)${C_TIME_START}⮂${C_TIME} %*-%L-%? "%{$reset_color%})'
 
