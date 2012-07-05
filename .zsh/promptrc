@@ -8,18 +8,6 @@ autoload -U colors && colors
 # Disable the virtualenv prompt additions, since we set them ourselves
 export VIRTUAL_ENV_DISABLE_PROMPT=1
 
-
-# ANSI escapes for colors and attributes.
-Black="%{[30m%}"
-Blue="%{[34m%}"
-Green="%{[32m%}"
-Cyan="%{[36m%}"
-Red="%{[31m%}"
-Purple="%{[35m%}"
-Brown="%{[33m%}"
-Gray="%{[37m%}"
-Norm="%{[0m%}"
-
 N_LINE=236
 C_LINE="%{[48;5;0;38;5;${N_LINE}m%}"
 C_BRANCH_ICON="%{[38;5;246m%}"
@@ -135,9 +123,6 @@ get_prompt_start() {
 	fi
 }
 
-
-# A rather boring prompt.
-#export PS1="%n@%m%# "
 
 export PS1='$(print "$(get_prompt_start)${C_USER} ${USER_FMT} ${C_LINE}${C_USER_END}⮀ ${C_PWD}%4c ${C_LINE_END}⮀ %{$reset_color%}")'
 
