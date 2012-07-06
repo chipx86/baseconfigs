@@ -35,7 +35,7 @@ set magic
 set mouse=a
 set hidden
 set listchars=tab:>>,trail:?,eol:$
-set wildignore=*.aux,*.bak,*.dvi,*.gz,*.idx,*.log,*.ps,*.swp,*.tar,*.zip,*.old,*.lo,*.o,*.a,*.la,*.class
+set wildignore=*.aux,*.bak,*.dvi,*.gz,*.idx,*.log,*.ps,*.swp,*.tar,*.zip,*.old,*.lo,*.o,*.a,*.la,*.class,.*.sw*,*.pyc
 set ttyfast
 set wildmenu
 set noincsearch
@@ -221,11 +221,12 @@ source $HOME/.vim/tabs.vim
 
 " Load any and all plugins registered with pathogen.
 call pathogen#infect()
+call pathogen#helptags()
 
 " vim-powerline configuration
 let g:Powerline_symbols = 'fancy'
 let g:Powerline_stl_path_style = "filename"
-call Pl#Theme#InsertSegment(['raw.buffernum', '%n'], 'after', 'mode_indicator')
+call Pl#Theme#InsertSegment(['raw.buffernum', '%{ListedBufNumber()}'], 'after', 'mode_indicator')
 call Pl#Theme#InsertSegment('charcode', 'after', 'filetype')
 call Pl#Theme#RemoveSegment('fileencoding')
 call Pl#Theme#RemoveSegment('filetype')
@@ -243,3 +244,16 @@ inoremap <expr><C-h> neocomplcache#smart_close_popup()."\<C-h>"
 inoremap <expr><BS> neocomplcache#smart_close_popup()."\<C-h>"
 inoremap <expr><C-y>  neocomplcache#close_popup()
 inoremap <expr><C-e>  neocomplcache#cancel_popup()
+
+" gundo
+nnoremap <F5> :GundoToggle<CR>
+nnoremap \g :GundoToggle<CR>
+
+" NERD Commenter
+let g:NERDSpaceDelims = 1
+let g:NERDCommentWholeLinesInVMode = 1
+let g:NERDCompactSexyComs = 1
+
+" CtrlP
+let g:ctrlp_custom_ignore = '^build$'
+nnoremap <C-b> :CtrlPBuffer<CR>
