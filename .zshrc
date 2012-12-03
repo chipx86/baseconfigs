@@ -12,6 +12,8 @@ ZSHRCDIR=~/.zsh
 ###
 ### Environemnt
 ###
+source $ZSHRCDIR/pre-localrc >/dev/null 2>&1
+
 source $ZSHRCDIR/envrc
 
 ## Command prompt
