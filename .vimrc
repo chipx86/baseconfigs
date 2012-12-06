@@ -22,6 +22,7 @@ set nobackup
 set showmatch
 set showmode
 set laststatus=2
+set modelines=5  " MacOS X will set to 0, so ensure we're at a sane default.
 set report=0
 set noerrorbells
 set vb t_vb=
