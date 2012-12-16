@@ -110,7 +110,13 @@ get_virtualenv_prompt_info() {
 get_prompt_start() {
 	virtualenv_prompt="$(get_virtualenv_prompt_info)"
 
-	if test $SHLVL -gt 1; then
+	if test "$TERM_PROGRAM" == "iTerm.app"; then
+		BASE_SHLVL=2
+	else
+		BASE_SHLVL=1
+	fi
+
+	if test $SHLVL -gt $BASE_SHLVL; then
 		if test ! -z "$virtualenv_prompt"; then
 			esc=$C_SUBSHELL_VIRTUALENV
 		else
