@@ -10,10 +10,15 @@ bindkey "\e[1~" beginning-of-line
 bindkey "\e[4~" end-of-line
 
 bindkey "OH" beginning-of-line
+bindkey "[H" beginning-of-line
 bindkey "OF" end-of-line
+bindkey "[F" end-of-line
 
 bindkey '^[[1;5C' forward-word
 bindkey '^[[1;5D' backward-word
+
+bindkey '^[^[[D' backward-word
+bindkey '^[^[[C' forward-word
 
 stty erase 
 
