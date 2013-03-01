@@ -55,3 +55,6 @@ compctl -c which whence
 # Misc completions
 #==========================================================================
 compctl -o -M 'L:|[nN][oO]= M:_= M:{A-Z}={a-z}' setopt unsetopt isset
+
+autoload -U compinit
+compinit
