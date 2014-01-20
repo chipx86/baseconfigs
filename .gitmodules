@@ -18,16 +18,16 @@
 	url = https://github.com/terryma/vim-multiple-cursors.git
 [submodule ".vim/bundle/vim-gitgutter"]
 	path = .vim/bundle/vim-gitgutter
-	url = https://github.com/airblade/vim-gitgutter.git
+	url = git://github.com/airblade/vim-gitgutter.git
 [submodule ".vim/bundle/unite.vim"]
 	path = .vim/bundle/unite.vim
 	url = https://github.com/Shougo/unite.vim/
 [submodule ".vim/bundle/dash.vim"]
 	path = .vim/bundle/dash.vim
-	url = https://github.com/rizzatti/dash.vim/
-[submodule ".vim/bundle/funcoo"]
-	path = .vim/bundle/funcoo
-	url = https://github.com/rizzatti/funcoo/
+	url = https://github.com/rizzatti/dash.vim.git
+[submodule ".vim/bundle/funcoo.vim"]
+	path = .vim/bundle/funcoo.vim
+	url = https://github.com/rizzatti/funcoo.vim.git
 [submodule ".vim/bundle/vimproc.vim"]
 	path = .vim/bundle/vimproc.vim
-	url = https://github.com/rizzatti/vimproc.vim/
+	url = https://github.com/Shougo/vimproc.vim.git
