@@ -224,6 +224,10 @@ source $HOME/.vim/tabs.vim
 call pathogen#infect()
 call pathogen#helptags()
 
+" Configure a gutter column showing the width at the end.
+set colorcolumn=+1,+2,+3
+highlight ColorColumn ctermbg=233 guibg=#080808
+
 " vim-powerline configuration
 let g:Powerline_symbols = 'fancy'
 let g:Powerline_stl_path_style = "filename"
@@ -258,3 +262,6 @@ let g:NERDCompactSexyComs = 1
 " CtrlP
 let g:ctrlp_custom_ignore = '^build$'
 nnoremap <C-b> :CtrlPBuffer<CR>
+
+" Vim-GitGutter
+highlight clear SignColumn
