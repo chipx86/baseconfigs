@@ -239,7 +239,9 @@ call Pl#Theme#RemoveSegment('fileformat')
 set guifont="DejaVu Sans Mono for Powerline"
 
 " neocomplcache configuration
-let g:neocomplcache_enable_at_startup = 1
+"let g:neocomplcache_enable_at_startup = 1
+let g:neocomplcache_use_vimproc = 1
+set completeopt-=preview
 " <CR>: close popup and save indent.
 inoremap <expr><CR>  neocomplcache#smart_close_popup() . "\<CR>"
 " <TAB>: completion.
