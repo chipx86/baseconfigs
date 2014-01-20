@@ -20,15 +20,16 @@ au BufNewFile,BufRead svn-commit.* setf svn | set noai et
 au FileType cs     set si    sw=4 ts=4
 "au FileType cpp    set si    sw=4 ts=4 | source $HOME/.vim/c.vim
 au FileType dtd    set ai et sw=2 ts=2
-au FileType html   set ai et sw=2 ts=2
-au FileType javascript set et si sw=4 ts=4
+au FileType html   set ai et sw=2 ts=2 formatoptions+=l
+au FileType javascript set et si sw=4 ts=4 tw=80 formatoptions+=l
 au FileType lisp   set    et           lisp
 au FileType mail   set                 tw=70
 au FileType perl   set ai    sw=4 ts=4
 au FileType php    set ai    sw=4 ts=4 | let php_minlines=1000 | syntax sync lines=500
 au FileType xml    set ai et sw=1 ts=1
-au FileType python set ai et sw=4 ts=4 smartindent sta sts=4 cinwords=if,elif,else,for,while,try,except,finally,def,class omnifunc=pythoncomplete#Complete
+au FileType python set ai et sw=4 ts=4 tw=79 smartindent sta sts=4 cinwords=if,elif,else,for,while,try,except,finally,def,class omnifunc=pythoncomplete#Complete formatoptions+=l
 au FileType ruby    set ai et sw=4 ts=4
+au FileType less    set et sw=2 ts=2
 
 au BufNewFile,BufRead *.dbk let b:docbk_type="xml" | set ft=docbk
 au BufNewFile,BufRead *.ml,*.rbx set ft=eruby
