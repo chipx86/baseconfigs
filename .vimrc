@@ -287,3 +287,9 @@ function! s:unite_my_settings()
 	map <buffer> \ <Plug>(unite_exit)
 	imap <silent><buffer><expr> <C-]> unite#do_action('split')
 endfunction
+
+" Dash
+let g:dash_map = {
+	\ 'python': 'py',
+	\ 'javascript': 'js'
+\ }
