@@ -1,5 +1,8 @@
 # -*- shell-script -*-
 
+# zsh config
+fpath=(~/.zsh/functions $fpath)
+
 # ls
 export LS_OPTIONS="--color=auto -FB -T 0"
 export GREP_OPTIONS="--color=auto"
