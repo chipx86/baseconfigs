@@ -31,3 +31,9 @@
 [submodule ".vim/bundle/vimproc.vim"]
 	path = .vim/bundle/vimproc.vim
 	url = https://github.com/Shougo/vimproc.vim.git
+[submodule ".vim/bundle/vim-sneak.git"]
+	path = .vim/bundle/vim-sneak.git
+	url = git://github.com/justinmk/vim-sneak.git
+[submodule ".vim/bundle/vim-abolish.git"]
+	path = .vim/bundle/vim-abolish.git
+	url = https://github.com/tpope/vim-abolish.git
