@@ -30,6 +30,7 @@ au FileType xml    set ai et sw=1 ts=1
 au FileType python set ai et sw=4 ts=4 tw=79 smartindent sta sts=4 cinwords=if,elif,else,for,while,try,except,finally,def,class omnifunc=pythoncomplete#Complete formatoptions+=l
 au FileType ruby    set ai et sw=4 ts=4
 au FileType less    set et sw=2 ts=2
+au FileType rst     set et sw=3 ts=3 tw=78
 
 au BufNewFile,BufRead *.dbk let b:docbk_type="xml" | set ft=docbk
 au BufNewFile,BufRead *.ml,*.rbx set ft=eruby
