@@ -6,8 +6,10 @@
 	name = Christian Hammond
 	email = chipx86@chipx86.com
 [alias]
+	amend = commit --amend
 	br = branch
 	co = checkout
+	rebase-this = "!git rebase --onto $1 HEAD^ #"
 	stat = status
 	st = status
 	pa = !sh -c 'git push origin  --follow-tags && git push chipx86 --follow-tags'
