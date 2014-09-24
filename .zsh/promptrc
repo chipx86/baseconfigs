@@ -10,8 +10,8 @@ export VIRTUAL_ENV_DISABLE_PROMPT=1
 
 N_LINE=236
 C_LINE="%{[48;5;0;38;5;${N_LINE}m%}"
-C_BRANCH_ICON="%{[38;5;246m%}"
-C_BRANCH="%{[38;5;245;48;5;235m%}"
+C_BRANCH_DIRTY="%{[38;5;178;48;5;235m%}"
+C_BRANCH_CLEAN="%{[38;5;246;48;5;235m%}"
 C_BRANCH_START="%{[38;5;235m%}"
 C_PWD="%{[0;48;5;${N_LINE};38;5;254m%}"
 
@@ -91,7 +91,13 @@ zsh_chpwd_update_git_vars() {
 get_git_prompt_info() {
 	test -n "$__CURRENT_GIT_VARS_INVALID" && zsh_git_compute_vars
 	if test ! -z $__CURRENT_GIT_BRANCH; then
-		print "${C_BRANCH_START}⮂${C_BRANCH} ${C_BRANCH_ICON}${__CURRENT_GIT_BRANCH} "
+		if test -n "$(git status -uno --porcelain)"; then
+			C_BRANCH=$C_BRANCH_DIRTY
+		else
+			C_BRANCH=$C_BRANCH_CLEAN
+		fi
+
+		print "${C_BRANCH_START}⮂${C_BRANCH} ${__CURRENT_GIT_BRANCH} "
 	fi
 }
 
