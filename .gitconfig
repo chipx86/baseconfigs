@@ -8,14 +8,22 @@
 [alias]
 	amend = commit --amend
 	br = branch
+	ci = commit
+	cia = commit --all
 	co = checkout
+	cp = cherry-pick
+	d = diff
+	dc = diff --cached
 	rebase-this = "!git rebase --onto $1 HEAD^ #"
+	rebase-here = "!git rebase HEAD $1 #"
 	stat = status
 	st = status
+	nb = checkout -b
 	pa = !sh -c 'git push origin  --follow-tags && git push chipx86 --follow-tags'
 	pat = !sh -c 'git push --tags origin && git push --tags chipx86'
 	p = !sh -c 'git push origin --follow-tags'
 	pt = !sh -c 'git push --tags origin'
+	rc = rebase-chain
 	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
 	lga = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --all
 	edit-unmerged = "!f() { git ls-files --unmerged | cut -f2 | sort -u ; }; vim `f`"
