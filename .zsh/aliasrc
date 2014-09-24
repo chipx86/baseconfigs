@@ -10,6 +10,7 @@ alias df="df -h"
 alias du="du -h"
 alias lsd='ls -d *(-/DN)'
 alias lsa='ls -d .*'
+alias g=git
 
 alias o='gnome-open'
 
