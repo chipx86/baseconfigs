@@ -161,7 +161,7 @@ inoremap <Nul> <C-x><C-o>
 
 " FuzzyFinderTextMate -
 " http://github.com/jamis/fuzzyfinder_textmate/tree/master
-map <C-F> :FuzzyFinderTextMate<CR>
+"map <C-F> :FuzzyFinderTextMate<CR>
 
 " NERDTree
 map <C-\> :NERDTreeToggle<CR>
@@ -243,17 +243,17 @@ set guifont="DejaVu Sans Mono for Powerline"
 
 " neocomplcache configuration
 "let g:neocomplcache_enable_at_startup = 1
-let g:neocomplcache_use_vimproc = 1
-set completeopt-=preview
-" <CR>: close popup and save indent.
-inoremap <expr><CR>  neocomplcache#smart_close_popup() . "\<CR>"
-" <TAB>: completion.
-inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
-" <C-h>, <BS>: close popup and delete backword char.
-inoremap <expr><C-h> neocomplcache#smart_close_popup()."\<C-h>"
-inoremap <expr><BS> neocomplcache#smart_close_popup()."\<C-h>"
-inoremap <expr><C-y>  neocomplcache#close_popup()
-inoremap <expr><C-e>  neocomplcache#cancel_popup()
+"let g:neocomplcache_use_vimproc = 1
+"set completeopt-=preview
+"" <CR>: close popup and save indent.
+"inoremap <expr><CR>  neocomplcache#smart_close_popup() . "\<CR>"
+"" <TAB>: completion.
+"inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+"" <C-h>, <BS>: close popup and delete backword char.
+"inoremap <expr><C-h> neocomplcache#smart_close_popup()."\<C-h>"
+"inoremap <expr><BS> neocomplcache#smart_close_popup()."\<C-h>"
+"inoremap <expr><C-y>  neocomplcache#close_popup()
+"inoremap <expr><C-e>  neocomplcache#cancel_popup()
 
 " gundo
 nnoremap <F5> :GundoToggle<CR>
@@ -272,24 +272,24 @@ nnoremap <C-b> :CtrlPBuffer<CR>
 highlight clear SignColumn
 
 " Unite
-let g:unite_enable_start_insert = 1
-let g:unite_enable_short_source_names = 1
-let g:unite_source_history_yank_enable = 1
-let g:unite_winwidth = 40
-call unite#filters#matcher_default#use(['matcher_fuzzy'])
-nnoremap <leader>f :<C-u>Unite -buffer-name=files file<CR>
-nnoremap <leader>r :<C-u>Unite -buffer-name=files file_rec/async:!<CR>
-nnoremap <leader>m :<C-u>Unite -buffer-name=mru file_mru<CR>
-nnoremap <leader>[ :<C-u>Unite -buffer-name=buffer -quick-match buffer<CR>
-nnoremap <leader>y :Unite -buffer-name=yank history/yank<CR>
-nnoremap <space>/ :Unite grep:.<CR>
-
-autocmd FileType unite call s:unite_my_settings()
-function! s:unite_my_settings()
-	imap <buffer> \ <Plug>(unite_exit)
-	map <buffer> \ <Plug>(unite_exit)
-	imap <silent><buffer><expr> <C-]> unite#do_action('split')
-endfunction
+"let g:unite_enable_start_insert = 1
+"let g:unite_enable_short_source_names = 1
+"let g:unite_source_history_yank_enable = 1
+"let g:unite_winwidth = 40
+"call unite#filters#matcher_default#use(['matcher_fuzzy'])
+""nnoremap <leader>f :<C-u>Unite -buffer-name=files file<CR>
+""nnoremap <leader>r :<C-u>Unite -buffer-name=files file_rec/async:!<CR>
+"nnoremap <leader>m :<C-u>Unite -buffer-name=mru file_mru<CR>
+"nnoremap <leader>[ :<C-u>Unite -buffer-name=buffer -quick-match buffer<CR>
+"nnoremap <leader>y :Unite -buffer-name=yank history/yank<CR>
+"nnoremap <space>/ :Unite grep:.<CR>
+"
+"autocmd FileType unite call s:unite_my_settings()
+"function! s:unite_my_settings()
+"	imap <buffer> \ <Plug>(unite_exit)
+"	map <buffer> \ <Plug>(unite_exit)
+"	imap <silent><buffer><expr> <C-]> unite#do_action('split')
+"endfunction
 
 " Dash
 let g:dash_map = {
