@@ -10,3 +10,7 @@ setopt extended_glob    # Allow extended stuff in globs (yeah...)
 # Also.
 #ulimit -c 0             # Disable core dumps
 ulimit -c unlimited
+
+# Turn on auto-escaping of URLs
+autoload -U url-quote-magic
+zle -N self-insert url-quote-magic
