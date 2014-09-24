@@ -17,7 +17,17 @@ call DisableRstSyntaxCodeList()
 
 " NOTE: Embedding java causes spell checking to be disabled, because
 " the syntax file for java monkeys with the spell checking settings.
-let g:rstEmbeddedLangs = ["c", "cpp", "html", "python", "sh", "vim"]
+let g:rstEmbeddedLangs = ["c", "cpp", "html", "python", "sh", "vim",
+\                         "django", "html+django", "javascript"]
+
+" Special-case C because Vim's syntax highlighting for cpp
+" is based on the C highlighting, and it doesn't like to
+" have both C and CPP active at the same time.  Map C highlighting
+" to CPP to avoid this problem.
+let g:rstLangAliases = {
+\    'c': 'cpp',
+\    'html+django': 'htmldjango',
+\}
 
 " -------------------------------------------------------------
 " Setup for reStructuredText.
@@ -57,14 +67,7 @@ function! SetupRstSyntax()
     call l:EmbedCodeBlock("", "")
     let includedLangs = {}
     for lang in g:rstEmbeddedLangs
-        let synLang = lang
-        if lang == "c"
-            " Special-case C because Vim's syntax highlighting for cpp
-            " is based on the C highlighting, and it doesn't like to
-            " have both C and CPP active at the same time.  Map C highlighting
-            " to CPP to avoid this problem.
-            let synLang = "cpp"
-        endif
+        let synLang = get(g:rstLangAliases, lang, lang)
         let synGroup = "rst" . synLang
         if !has_key(includedLangs, synLang)
             call SyntaxInclude(synGroup, synLang)
@@ -77,3 +80,5 @@ function! SetupRstSyntax()
     syntax sync fromstart
 endfunction
 command! -bar SetupRstSyntax call SetupRstSyntax()
+
+SetupRstSyntax
