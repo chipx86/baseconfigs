@@ -36,7 +36,7 @@ set magic
 set mouse=a
 set hidden
 set listchars=tab:>>,trail:?,eol:$
-set wildignore=*.aux,*.bak,*.dvi,*.gz,*.idx,*.log,*.ps,*.swp,*.tar,*.zip,*.old,*.lo,*.o,*.a,*.la,*.class,.*.sw*,*.pyc
+set wildignore=*.aux,*.bak,*.dvi,*.gz,*.idx,*.log,*.ps,*.swp,*.tar,*.zip,*.old,*.lo,*.o,*.a,*.la,*.class,.*.sw*,*.pyc,*.orig,*.rej
 set ttyfast
 set wildmenu
 set noincsearch
