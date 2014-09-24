@@ -1,3 +1,5 @@
+#compdef git-integrate
+
 function _git-integrate() {
     _arguments -w -S -s \
         '*: :__git_branch_names'
