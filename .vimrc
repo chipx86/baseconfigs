@@ -265,8 +265,11 @@ let g:NERDCommentWholeLinesInVMode = 1
 let g:NERDCompactSexyComs = 1
 
 " CtrlP
-let g:ctrlp_custom_ignore = '^build$'
+let g:ctrlp_custom_ignore = {
+    \ 'dir': 'build\|dist\|htdocs/static\|docs_src\|docs_build',
+\ }
 nnoremap <C-b> :CtrlPBuffer<CR>
+nnoremap <leader>f :CtrlPBuffer<CR>
 
 " Vim-GitGutter
 highlight clear SignColumn
