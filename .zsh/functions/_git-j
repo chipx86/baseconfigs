@@ -1,0 +1,6 @@
+#compdef git-j
+
+function _git-j() {
+    _arguments -w -S -s \
+        '*: :__git_branch_names'
+}
