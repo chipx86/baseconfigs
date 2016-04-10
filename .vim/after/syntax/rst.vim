@@ -18,7 +18,7 @@ call DisableRstSyntaxCodeList()
 " NOTE: Embedding java causes spell checking to be disabled, because
 " the syntax file for java monkeys with the spell checking settings.
 let g:rstEmbeddedLangs = ["c", "cpp", "html", "python", "sh", "vim",
-\                         "django", "html+django", "javascript"]
+\                         "django", "diff", "html+django", "javascript"]
 
 " Special-case C because Vim's syntax highlighting for cpp
 " is based on the C highlighting, and it doesn't like to
@@ -42,7 +42,7 @@ function! SetupRstSyntax()
             let region = "rstCodeBlock"
             let regex = ".*"
         else
-            let region = "rstDirective" . a:lang
+            let region = "rstDirective" . substitute(a:lang, '+', '', '')
             let regex = a:lang
         endif
         silent! syn clear region
