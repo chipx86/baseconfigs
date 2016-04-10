@@ -232,14 +232,38 @@ set colorcolumn=+1,+2,+3
 highlight ColorColumn ctermbg=233 guibg=#080808
 
 " vim-powerline configuration
-let g:Powerline_symbols = 'fancy'
-let g:Powerline_stl_path_style = "filename"
-call Pl#Theme#InsertSegment(['raw.buffernum', '%{ListedBufNumber()}'], 'after', 'mode_indicator')
-call Pl#Theme#InsertSegment('charcode', 'after', 'filetype')
-call Pl#Theme#RemoveSegment('fileencoding')
-call Pl#Theme#RemoveSegment('filetype')
-call Pl#Theme#RemoveSegment('fileformat')
-set guifont="DejaVu Sans Mono for Powerline"
+"let g:Powerline_symbols = 'fancy'
+"let g:Powerline_stl_path_style = "filename"
+"call Pl#Theme#InsertSegment(['raw.buffernum', '%{ListedBufNumber()}'], 'after', 'mode_indicator')
+"call Pl#Theme#InsertSegment('charcode', 'after', 'filetype')
+"call Pl#Theme#RemoveSegment('fileencoding')
+"call Pl#Theme#RemoveSegment('filetype')
+"call Pl#Theme#RemoveSegment('fileformat')
+"set guifont="DejaVu Sans Mono for Powerline"
+"
+"set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim
+let g:airline_powerline_fonts = 1
+let g:airline_theme = "powerline"
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#buffer_idx_mode = 1
+let g:airline#extensions#tabline#buffer_nr_show = 1
+let g:airline#extensions#tabline#buffer_nr_format = '%s: '
+let g:airline#extensions#tabline#buffer_min_count = 2
+let g:airline#extensions#tabline#buffer_min_count = 2
+let g:airline#extensions#tabline#fnamemod = ':t'
+
+" Put a red modified symbol in the status line, line vim-powerline had.
+let g:airline_detect_modified = 0
+
+function! Init()
+	call airline#parts#define_raw('modified', '%{&modified ? "[+]" : ""}')
+	call airline#parts#define_accent('modified', 'red')
+	let spc = g:airline_symbols.space
+	let g:airline_section_c = airline#section#create(
+		\ ['%<', '%f', spc, 'modified', spc, 'readonly'])
+endfunction
+
+autocmd VimEnter * call Init()
 
 " neocomplcache configuration
 "let g:neocomplcache_enable_at_startup = 1
