@@ -1,4 +1,4 @@
-filetype plugin on
+filetype plugin indent on
 
 let python_highlight_all=1
 
@@ -6,7 +6,6 @@ au Syntax php so $HOME/.vim/syntax/php.vim
 au Syntax php3 so $HOME/.vim/syntax/php.vim
 au Syntax eruby so $HOME/.vim/ftplugin/eruby.vim
 au Syntax befunge so $HOME/.vim/ftplugin/befunge.vim
-au Syntax python so $HOME/.vim/python.vim
 
 au BufNewFile,BufRead *.xsd,*.rdf,*.rss,*.ihtml setf xml
 au BufNewFile,BufRead udiprops.txt              setf config
