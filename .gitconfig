@@ -5,6 +5,7 @@
 [user]
 	name = Christian Hammond
 	email = christian@beanbaginc.com
+	signingkey = C150D7EB
 [alias]
 	amend = commit --amend
 	br = branch
