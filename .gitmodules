@@ -37,3 +37,6 @@
 [submodule ".vim/bundle/vim-abolish.git"]
 	path = .vim/bundle/vim-abolish.git
 	url = https://github.com/tpope/vim-abolish.git
+[submodule ".vim/bundle/caw.vim"]
+	path = .vim/bundle/caw.vim
+	url = https://github.com/tyru/caw.vim.git
