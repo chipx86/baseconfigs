@@ -34,6 +34,7 @@
 	int = integrate
 [core]
 	excludesfile = /Users/chipx86/.gitignore_global
+	pager = less -S
 [diff]
 	tool = "Kaleidoscope"
 [difftool]
