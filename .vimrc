@@ -303,7 +303,7 @@ let g:NERDCompactSexyComs = 1
 
 " CtrlP
 let g:ctrlp_custom_ignore = {
-    \ 'dir': 'build\|dist\|htdocs/static\|docs_src\|docs_build',
+    \ 'dir': 'build\|dist\|htdocs/static\|docs_src\|docs_build\|.git',
 \ }
 nnoremap <C-b> :CtrlPBuffer<CR>
 nnoremap <leader>f :CtrlPBuffer<CR>
