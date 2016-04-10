@@ -127,6 +127,11 @@ nnoremap <C-y> <C-y><C-y><C-y>
 vnoremap < <gv
 vnoremap > >gv
 
+" Add some friendlier page up/down movements. These are for the MacOS
+" character codes (which come across as Escape).
+nnoremap <Esc>J <PageDown>
+nnoremap <Esc>K <PageUp>
+
 if !has("gui_running")
   set background=dark
 else
