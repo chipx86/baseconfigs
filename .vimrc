@@ -116,6 +116,9 @@ endif
 " Remaps
 noremap <C-G> 2<C-G>
 
+" Save a shift key when going into command mode.
+map ; :
+
 " Make Control-E/Y viewport scrolling move 3 lines at a time.
 nnoremap <C-e> <C-e><C-e><C-e>
 nnoremap <C-y> <C-y><C-y><C-y>
