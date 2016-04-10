@@ -44,6 +44,10 @@ set sw=4
 set ts=4
 set suffixes=.aux,.bak,.dvi,.gz,.idx,.log,.ps,.swp,.tar,.zip,.o,.la,.lo,.lib,.a,.so
 
+" Enable persistent undo state.
+set undofile
+set undodir=~/.vim/undodir
+
 " Use 256-colors
 set t_Co=256
 

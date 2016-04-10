@@ -2,6 +2,9 @@
 .*.swo
 .netrwhist
 .VimballRecord
+
+.vim/undodir
 .zsh/localrc
 .zsh/pre-localrc
+
 tags
