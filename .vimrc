@@ -178,6 +178,7 @@ inoremap <Nul> <C-x><C-o>
 " NERDTree
 map <C-\> :NERDTreeToggle<CR>
 let NERDTreeIgnore=['\.pyc$']
+let NERDTreeMapActivateNode='<CR>'
 
 " TagList
 map <C-_> :TlistToggle<CR>
