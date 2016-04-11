@@ -1,3 +1,5 @@
 # -*- shell-script -*-
 
 limit coredumpsize 500M
+
+test -e ${HOME}/.iterm2_shell_integration.zsh && source ${HOME}/.iterm2_shell_integration.zsh
