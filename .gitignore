@@ -1,10 +1,13 @@
-.*.swp
-.*.swo
-.netrwhist
+# VIM directories/files
+.vim/undodir
 .VimballRecord
 
-.vim/undodir
+# ZSH directories/files
 .zsh/localrc
 .zsh/pre-localrc
 
+# Common
+.*.swp
+.*.swo
+.netrwhist
 tags
