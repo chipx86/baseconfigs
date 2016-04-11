@@ -48,5 +48,3 @@ source $ZSHRCDIR/localrc >/dev/null 2>&1
 # Ensure that the first error code when starting the session is 0, so that
 # the prompt won't show an error value.
 true
-
-PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
