@@ -27,6 +27,9 @@ C_ERROR_BG=88
 C_ERROR_START="%{[38;5;${C_ERROR_BG};48;5;${C_TIME_BG}m%}"
 C_ERROR="%{[38;5;${C_ERROR_FG};48;5;${C_ERROR_BG}m%}"
 
+ARROW_RIGHT=""
+ARROW_LEFT=""
+
 Title="%{\e]2;%}%n@%m %~\a"
 
 if [[ $UID -eq 0 ]]; then
@@ -97,7 +100,7 @@ get_git_prompt_info() {
 			C_BRANCH=$C_BRANCH_CLEAN
 		fi
 
-		print "${C_BRANCH_START}⮂${C_BRANCH} ${__CURRENT_GIT_BRANCH} "
+		print "${C_BRANCH_START}${ARROW_LEFT}${C_BRANCH} ${__CURRENT_GIT_BRANCH} "
 	fi
 }
 
@@ -109,7 +112,7 @@ get_virtualenv_prompt_info() {
 	fi
 
 	if test ! -z $__CURRENT_VIRTUALENV; then
-		print "${C_VIRTUALENV_START} ${__CURRENT_VIRTUALENV} ${C_VIRTUALENV_END}⮀"
+		print "${C_VIRTUALENV_START} ${__CURRENT_VIRTUALENV} ${C_VIRTUALENV_END}${ARROW_RIGHT}"
 	fi
 }
 
@@ -129,18 +132,18 @@ get_prompt_start() {
 			esc=$C_SUBSHELL
 		fi
 
-		print "${esc}⮂${virtualenv_prompt}"
+		print "${esc}${ARROW_LEFT}${virtualenv_prompt}"
 	else
 		print $virtualenv_prompt
 	fi
 }
 
 
-export PS1='$(print "$(get_prompt_start)${C_USER} ${USER_FMT} ${C_LINE}${C_USER_END}⮀ ${C_PWD}%4c ${C_LINE_END}⮀ %{$reset_color%}")'
+export PS1='$(print "$(get_prompt_start)${C_USER} ${USER_FMT} ${C_LINE}${C_USER_END}${ARROW_RIGHT} ${C_PWD}%4c ${C_LINE_END}${ARROW_RIGHT} %{$reset_color%}")'
 
-export RPROMPT='$(print "${C_LINE_START}$(get_git_prompt_info)${C_TIME_START}⮂${C_TIME} %* %(?..${C_ERROR_START}⮂${C_ERROR} %? )%{$reset_color%}")'
+export RPROMPT='$(print "${C_LINE_START}$(get_git_prompt_info)${C_TIME_START}${ARROW_LEFT}${C_TIME} %* %(?..${C_ERROR_START}${ARROW_LEFT}${C_ERROR} %? )%{$reset_color%}")'
 
-export PS2="$(print "${C_PWD} ... ${C_LINE_END}⮀ %{$reset_color%}")"
+export PS2="$(print "${C_PWD} ... ${C_LINE_END}${ARROW_RIGHT} %{$reset_color%}")"
 
 
 case $TERM in
