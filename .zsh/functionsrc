@@ -19,7 +19,13 @@ function pycd() {
 }
 
 function buildroot() {
+	post_script=~/.zsh/buildroots/post/$1
+
 	builtin source ~/buildroots/$1/bin/activate
+
+	if [[ -e $post_script ]] then
+		builtin source $post_script
+	fi
 }
 
 # Limit auto-completion for git, so things aren't super slow.
