@@ -156,6 +156,9 @@ map ,vu     :so ~/.vimrc<CR>
 
 map E e<RIGHT>
 
+" Yanv to EOL.
+map Y y$
+
 "    I use , as a prefix for all sorts of maps. Restore this in normal mode
 noremap g, ,
 
