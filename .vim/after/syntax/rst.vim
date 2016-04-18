@@ -37,7 +37,7 @@ function! SetupRstSyntax()
     " .. code-block:: lang
     "     lang-specific source code here.
     " ..
-    function! l:EmbedCodeBlock(lang, synGroup)
+    function! s:EmbedCodeBlock(lang, synGroup)
         if a:lang == ""
             let region = "rstCodeBlock"
             let regex = ".*"
@@ -64,16 +64,16 @@ function! SetupRstSyntax()
 
     call DisableRstSyntaxCodeList()
     " Handle unspecified languages first.
-    call l:EmbedCodeBlock("", "")
+    call s:EmbedCodeBlock("", "")
     let includedLangs = {}
     for lang in g:rstEmbeddedLangs
         let synLang = get(g:rstLangAliases, lang, lang)
         let synGroup = "rst" . synLang
         if !has_key(includedLangs, synLang)
-            call SyntaxInclude(synGroup, synLang)
+            silent! call SyntaxInclude(synGroup, synLang)
             let includedLangs[synLang] = 1
         endif
-        call l:EmbedCodeBlock(lang, synGroup)
+        call s:EmbedCodeBlock(lang, synGroup)
     endfor
 
     " Re-synchronize syntax highlighting from start of file.
