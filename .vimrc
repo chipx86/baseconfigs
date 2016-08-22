@@ -272,9 +272,12 @@ let g:airline#extensions#tabline#fnamemod = ':t'
 let g:airline_detect_modified = 0
 
 function! Init()
+	call airline#parts#define_raw('listedbufnum', '%{ListedBufNumber()}')
 	call airline#parts#define_raw('modified', '%{&modified ? "[+]" : ""}')
 	call airline#parts#define_accent('modified', 'red')
 	let spc = g:airline_symbols.space
+	let g:airline_section_a = airline#section#create_left(
+		\ ['listedbufnum', 'mode', 'crypt', 'paste', 'capslock', 'iminsert'])
 	let g:airline_section_c = airline#section#create(
 		\ ['%<', '%f', spc, 'modified', spc, 'readonly'])
 endfunction
