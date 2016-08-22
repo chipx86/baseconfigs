@@ -238,6 +238,7 @@ source $HOME/.vim/misc.vim
 source $HOME/.vim/filetypes.vim
 source $HOME/.vim/folding.vim
 source $HOME/.vim/tabs.vim
+source $HOME/.vim/conf/*.vim
 
 " Load any and all plugins registered with pathogen.
 call pathogen#infect()
