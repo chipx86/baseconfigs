@@ -7,9 +7,9 @@
 " - It's easier to disable the support in syntax/rst.vim entirely than to
 "   partially use it and work around its limitations.
 function! DisableRstSyntaxCodeList()
-    if exists ("g:rst_syntax_code_list") && len(g:rst_syntax_code_list) > 0
-        echoerr "Disabling g:rst_syntax_code_list; use g:rstEmbeddedLangs"
-    endif
+"    if exists ("g:rst_syntax_code_list") && len(g:rst_syntax_code_list) > 0
+"        echoerr "Disabling g:rst_syntax_code_list; use g:rstEmbeddedLangs"
+"    endif
     let g:rst_syntax_code_list = []
 endfunction
 
