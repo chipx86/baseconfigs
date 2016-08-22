@@ -32,6 +32,9 @@
 	add-unmerged = "!f() { git ls-files --unmerged | cut -f2 | sort -u ; }; git add `f`"
 	purr = pull --rebase
 	int = integrate
+	wip = "!git commit -m '[WIP] Summary of commit\n\nTODO:\n  *' -e --allow-empty"
+	nbw = "!git nb $1; git wip #"
+
 [core]
 	excludesfile = /Users/chipx86/.gitignore_global
 	pager = less -S
