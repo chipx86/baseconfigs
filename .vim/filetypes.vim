@@ -36,7 +36,7 @@ au BufNewFile,BufRead *.dbk let b:docbk_type="xml" | set ft=docbk
 au BufNewFile,BufRead *.ml,*.rbx set ft=eruby
 au BufNewFile,BufRead *.bf set ft=befunge
 
-autocmd BufNewFile,BufRead COMMIT_EDITMSG set filetype=gitcommit
+autocmd BufNewFile,BufRead COMMIT_EDITMSG set filetype=gitcommit | call setpos('.', [0, 1, 1])
 
 "au BufNewFile,BufRead *.rbx,*.ml source $HOME/.vim/ftplugin/eruby.vim | set ft=eruby
 
