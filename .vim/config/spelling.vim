@@ -1,0 +1,25 @@
+" Auto-correct some commonly-typod words.
+iab aslo       also
+iab bianry     binary
+iab bianries   binaries
+iab charcter   character
+iab charcters  characters
+iab exmaple    example
+iab exmaples   examples
+iab shoudl     should
+iab seperate   separate
+iab teh        the
+iab taht       that
+iab tpyo       typo
+iab tehy       they
+iab ahve       have
+iab wrold      world
+iab wrodl      world
+iab wordl      world
+iab owrld      world
+iab ture       true
+iab unsgined   unsigned
+iab unsigend   unsigned
+iab unsignd    unsigned
+iab Timre      Timer
+iab timre      timer
