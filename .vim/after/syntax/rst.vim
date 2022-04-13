@@ -17,7 +17,7 @@ call DisableRstSyntaxCodeList()
 
 " NOTE: Embedding java causes spell checking to be disabled, because
 " the syntax file for java monkeys with the spell checking settings.
-let g:rstEmbeddedLangs = ["c", "cpp", "html", "python", "sh", "vim",
+let g:rstEmbeddedLangs = ["c", "cpp", "ebnf", "html", "json", "python", "sh", "vim",
 \                         "django", "diff", "html+django", "javascript"]
 
 " Special-case C because Vim's syntax highlighting for cpp
