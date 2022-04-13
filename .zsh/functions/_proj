@@ -1,0 +1,8 @@
+#compdef proj
+
+function _proj() {
+	projects=($HOME/.zsh/projects/*(:t))
+	_arguments "1:projects:_values $projects"
+}
+
+_proj "$@"

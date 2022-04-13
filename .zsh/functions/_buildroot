@@ -1,0 +1,9 @@
+#compdef buildroot br
+
+
+function _buildroot() {
+	buildroots=`ls -1 ~/buildroots | sed -e 's/\n/ /g'`
+	_arguments "1:buildroots:_values $buildroots"
+}
+
+_buildroot "$@"

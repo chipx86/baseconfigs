@@ -15,16 +15,81 @@ function calc() {
 }
 
 function pycd() {
-	builtin cd `pywhere "$@"`
+	if [[ $# -eq 2 ]] then
+		builtin cd `pywhere.sh $1 "$2"`
+	else
+		builtin cd `pywhere "$@"`
+	fi
 }
 
+
+# Switch to a Python buildroot (venv).
+#
+# Usage: buildroot <buildroot-name>
+#
+# This expects all buildroots to live in ~/buildroots/.
+#
+# If a ~/.zsh/buildroots/post/<buildrootname> is found, it will be executed
+# after switching.
 function buildroot() {
-	post_script=~/.zsh/buildroots/post/$1
+    post_script=~/.zsh/buildroots/post/$1
 
-	builtin source ~/buildroots/$1/bin/activate
+    builtin source ~/buildroots/$1/bin/activate
 
-	if [[ -e $post_script ]] then
-		builtin source $post_script
+    if [[ -e $post_script ]] then
+        builtin source $post_script
+    fi
+}
+
+
+# Switch to a development project.
+#
+# Usage: proj <project-name>
+#
+# This will look for a matching project in ~/.zsh/projects/. Each file
+# may contain the following settings:
+#
+#   * buildroot_name: The name of a buildroot to pass to `buildroot`.
+#   * project_path: The path of the project to `cd` to.
+#   * iterm_tab_color: Optional RGB array sequence for the iTerm tab color.
+#   * iterm_tab_title: Optional title for the iTerm tab.
+#   * iterm_badge: Optional badge text for the iTerm pane.
+function proj() {
+	buildroot_name=
+	project_path=
+	iterm_tab_color=
+	iterm_tab_title=
+	iterm_badge=
+
+	proj_name=$1
+	proj_script=~/.zsh/projects/$proj_name
+
+	if [[ ! -e $proj_script ]] then
+		echo "Invalid project: $proj_name" >&1
+		return
+	fi
+
+	builtin source $proj_script
+
+	if [[ ! -z $buildroot_name ]] then
+		buildroot $buildroot_name
+	fi
+
+	if [[ ! -z $project_path ]] then
+		builtin cd $project_path
+	fi
+
+	if [[ ! -z $iterm_tab_color ]] then
+		rgb=("${(@s/ /)iterm_tab_color}")
+		echo -ne "\033]6;1;bg;red;brightness;$rgb[1]\a"
+		echo -ne "\033]6;1;bg;green;brightness;$rgb[2]\a"
+		echo -ne "\033]6;1;bg;blue;brightness;$rgb[3]\a"
+	fi
+
+	if [[ ! -z $iterm_badge ]] then
+		echo -ne "\033]1337;SetBadgeFormat=`echo -n "$iterm_badge" | base64`\a"
+	else
+		echo -ne "\033]1337;SetBadgeFormat=\a"
 	fi
 }
 
