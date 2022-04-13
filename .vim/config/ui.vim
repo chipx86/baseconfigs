@@ -1,3 +1,5 @@
+set termguicolors
+
 if !has("gui_running")
   set background=dark
 else
@@ -13,8 +15,14 @@ if &t_Co > 2 || has("gui_running")
 endif
 
 
+" Turn off the background color from the theme, so the terminal's is used.
+autocmd colorscheme * highlight Normal ctermbg=NONE guibg=NONE
+autocmd colorscheme * highlight NonText ctermbg=NONE guibg=NONE
+
+
 " Set the colors
 colorscheme desert256
+
 
 " Set the line numbers to be dark gray
 highlight LineNr term=bold cterm=NONE ctermfg=DarkGrey ctermbg=NONE gui=NONE guifg=DarkGrey guibg=NONE
