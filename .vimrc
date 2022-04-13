@@ -38,11 +38,16 @@ set hidden
 set listchars=tab:>>,trail:?,eol:$
 set wildignore=*.aux,*.bak,*.dvi,*.gz,*.idx,*.log,*.ps,*.swp,*.tar,*.zip,*.old,*.lo,*.o,*.a,*.la,*.class,.*.sw*,*.pyc,*.orig,*.rej
 set ttyfast
-set wildmenu
 set noincsearch
 set sw=4
 set ts=4
 set suffixes=.aux,.bak,.dvi,.gz,.idx,.log,.ps,.swp,.tar,.zip,.o,.la,.lo,.lib,.a,.so
+
+" Use a menu in the status line to complete options for opening files,
+" browsing settings, except. Using wildmode=full, the up/down arrow keys will
+" also navigate up/down folders in this mode.
+set wildmenu
+set wildmode=list:full
 
 " Enable persistent undo state.
 set undofile
