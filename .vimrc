@@ -340,6 +340,41 @@ source $HOME/.vim/config/plugins/vim-indentation-guides.vim
 
 
 "
+" vim-varnish: Adds syntax highlighting for Varnish VCL files.
+" URL: https://github.com/fgsch/vim-varnish
+"
+Plug 'fgsch/vim-varnish'
+
+
+"
+" Typescript Syntax: Adds syntax highlighting for TypeScript.
+" URL: https://github.com/leafgarland/typescript-vim
+"
+Plug 'leafgarland/typescript-vim'
+
+
+"
+" yajs: Yet Another JavaScript Syntax
+" URL: https://github.com/kern/vim-es7
+"
+Plug 'othree/yajs'
+
+
+"
+" es.next.syntax: ECAMScript future syntax support for YAJS
+" URL: https://github.com/othree/es.next.syntax.vim
+"
+"Plug 'othree/es.next.syntax.vim'
+
+
+"
+" Vim-Jinja2-Syntax: Jinja highlighter
+" URL: https://github.com/Glench/Vim-Jinja2-Syntax
+"
+Plug 'Glench/Vim-Jinja2-Syntax'
+
+
+"
 " vim-multiple-cursor: Create and interact with multiple cursors
 " URL: https://github.com/terryma/vim-multiple-cursors
 " Usage:
