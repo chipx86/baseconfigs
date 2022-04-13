@@ -22,12 +22,12 @@
 	nb = checkout -b
 	pa = !sh -c 'git push origin  --follow-tags && git push chipx86 --follow-tags'
 	pat = !sh -c 'git push --tags origin && git push --tags chipx86'
-	p = !sh -c 'git push origin --follow-tags'
-	pt = !sh -c 'git push --tags origin'
+	p = push origin --follow-tags
+	pt = push --tags origin
 	rc = rebase-chain
-	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
-	lga = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --all
-	lgplain = log --graph --pretty=format:'%h -%d %s (%cr) <%an>' --abbrev-commit
+	lg = log --graph --pretty=format:'%C(auto,red bold)%h%C(auto,reset) -%C(auto,yellow)%d%C(auto,reset) %s %C(auto,green)(%cr - %cd) %C(auto,bold blue)<%an>%C(auto,reset)' --abbrev-commit --date=short
+	lga = "!git lg --all $*"
+	lgplain = "!git lg --no-color $*"
 	edit-unmerged = "!f() { git ls-files --unmerged | cut -f2 | sort -u ; }; vim `f`"
 	add-unmerged = "!f() { git ls-files --unmerged | cut -f2 | sort -u ; }; git add `f`"
 	purr = pull --rebase
