@@ -78,6 +78,16 @@ set shortmess=atI
 " Show the filename and path in the titlebar.
 set title
 
+" Enable automatic selection of the regex engine, to speed up highlighting.
+"
+" 0 = automatic selection
+" 1 = old engine
+" 2 = modern NFA engine
+"
+" 0 should be the default, but it's getting set to 1 in my Apple-compiled
+" vim (unclear where at this point).
+set re=0
+
 " Integrate with ack
 set grepprg=ack\ -a
 
