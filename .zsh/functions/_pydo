@@ -1,0 +1,12 @@
+#compdef pydo
+
+function _pydo() {
+    pythons=
+    command=$1
+
+    for i in $@; do
+        echo $i
+    done
+}
+
+_pydo "$@"
