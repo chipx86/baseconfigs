@@ -43,6 +43,10 @@ set sw=4
 set ts=4
 set suffixes=.aux,.bak,.dvi,.gz,.idx,.log,.ps,.swp,.tar,.zip,.o,.la,.lo,.lib,.a,.so
 
+" Smarter line joins. Keeps from having extra whitespace or comment
+" characters.
+set formatoptions+=j
+
 " Use a menu in the status line to complete options for opening files,
 " browsing settings, except. Using wildmode=full, the up/down arrow keys will
 " also navigate up/down folders in this mode.
