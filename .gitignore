@@ -1,5 +1,6 @@
 # VIM directories/files
 .vim/undodir
+.vim/plugged
 .VimballRecord
 
 # ZSH directories/files

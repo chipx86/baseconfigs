@@ -178,6 +178,199 @@ endif
 " Don't use Ex mode, use Q for formatting
 map Q gq
 
+"----------------------------------------------------------
+" Load/install/configure plugins
+"----------------------------------------------------------
+
+call plug#begin('~/.vim/plugged')
+
+
+" Abolish: Smarter substitutions
+" URL: https://github.com/tpope/tpope-vim-abolish
+" Usage:
+"     Substitution:
+"         Instead of:
+"
+"             :%s/foo/bar/g
+"             :%s/Foo/Bar/g
+"             :%s/FOO/BAR/g
+"
+"         You can do:
+"
+"             :%Subvert/foo/bar/g
+"
+"         And instead of:
+"
+"             :%s/facility/building/g
+"             :%s/Facility/Building/g
+"             :%s/FACILITY/BUILDING/g
+"             :%s/facilities/buildings/g
+"             :%s/Facilities/Buildings/g
+"             :%s/FACILITIES/BUILDINGS/g
+"
+"         You can do:
+"
+"             :%Subvert/facilit{y,ies}/building{,s}/g
+"
+"     Shortcuts:
+"         "crs" - Convert text on cursor to snake_case
+"         "crm" - Convert text on cursor to MixedCase
+"         "crc" - Convert text on cursor to camelCase
+"         "cru" - Convert text on cursor to UPPER_CASE
+"         "cr-" - Convert text on cursor to dash-case
+"         "cr." - Convert text on cursor to dot.case
+"         "cr " - Convert text on cursor to space case
+"         "crt" - Convert text on cursor to Title Case
+"
+Plug 'tpope/tpope-vim-abolish'
+
+
+"
+" Airline: Statusline plugin
+" URL: https://github.com/vim-airline/vim-airline
+"
+Plug 'vim-airline/vim-airline', {'tag': 'v0.7-124-gca6ab34'}
+source $HOME/.vim/config/plugins/airline.vim
+
+
+" bufexplorer
+source $HOME/.vim/config/plugins/bufexplorer.vim
+
+
+"
+" CAW: VIM comment plugin
+" URL: https://github.com/tyru/caw.vim
+" Usage:
+"     Manage comments at the beginning of a line, respecting indentation:
+"         "gci"  - comment
+"         "gcui" - uncomment
+"         "gcc"  - toggle
+"
+"     Manage comments at the beginning of a line (column 0):
+"         "gcI"  - comment
+"         "gcuI" - uncomment
+"
+"     Manage comments at the end of a line (when inserting, 4 spaces will be
+"     added):
+"         "gca"  - comment
+"         "gcua" - uncomment
+"
+"     Wrap lines in a comment (one comment per line):
+"         "gcw"  - comment
+"         "gcuw" - uncomment
+"
+"     Add a new comment on the next line and begin typing:
+"         "gco"
+"
+"     Add a new comment on the previous line line and begin typing:
+"         "gcO"
+"
+Plug 'tyru/caw.vim'
+
+
+"
+" CtrlP: Fuzzy completion for buffers and files
+" URL: https://github.com/ctrlpvim/ctrlp.vim
+" Usage:
+"     "Control-B" - Search for buffers
+"     "Control-P" - Search for files
+"
+Plug 'ctrlpvim/ctrlp.vim'
+source $HOME/.vim/config/plugins/ctrlp.vim
+
+
+"
+" Dash: Uses Dash.app to look up API docs.
+" URL: https://github.com/rizzatti/dash.vim
+" Usage:
+"     ":Dash" - Look up docs for the current word.
+"
+Plug 'rizzatti/dash.vim'
+source $HOME/.vim/config/plugins/dash.vim
+
+
+"
+" Fugitive: Git utilities for Vim
+" URL: https://github.com/tpope/vim-fugitive
+"
+Plug 'tpope/vim-fugitive'
+
+
+"
+" Flog
+" URL: https://github.com/rbong/vim-flog
+"
+Plug 'rbong/vim-flog'
+"source $HOME/.vim/config/plugins/vim-flog.vim
+
+
+"
+" Funcoo: Functional Object Oriented VimL (used by other plugins)
+" URL: https://github.com/rizzatti/funcoo.vim
+"
+Plug 'rizzatti/funcoo.vim'
+
+
+"
+" GitGutter
+" URL: https://github.com/airblade/vim-gitgutter
+"
+Plug 'airblade/vim-gitgutter'
+source $HOME/.vim/config/plugins/vim-gitgutter.vim
+
+
+"
+" Gundo: Undo manager
+" URL: https://github.com/sjl/gundo.vim
+" Usage:
+"     "\g" - Open the Gundo panel.
+"
+source $HOME/.vim/config/plugins/gundo.vim
+Plug 'sjl/gundo.vim'
+
+
+"
+" Indent Guides: Displays indentation levels
+" URL: https://github.com/nathanaelkane/vim-indent-guides
+" Usage:
+"     "\ig" - Toggle showing indentation levels.
+"
+Plug 'nathanaelkane/vim-indent-guides'
+source $HOME/.vim/config/plugins/vim-indentation-guides.vim
+
+
+"
+" vim-multiple-cursor: Create and interact with multiple cursors
+" URL: https://github.com/terryma/vim-multiple-cursors
+" Usage:
+"     "Control-N": Highlight the current word and create a cursor. Repeat
+"                  to search for the next occurrence. When ready, use "i"
+"                  or "s" or anything else to edit all selected words.
+"
+Plug 'terryma/vim-multiple-cursors'
+
+
+"
+" vim-python-pep8-indent: Modify Python indentation for better PEP-8.
+" URL: https://github.com/Vimjas/vim-python-pep8-indent
+"
+Plug 'Vimjas/vim-python-pep8-indent'
+
+
+"
+" vimproc: Interactive command execution (used by other plugins)
+" URL: https://github.com/Shougo/vimproc.vim
+"
+Plug 'Shougo/vimproc.vim', {'do': 'make'}
+
+
+call plug#end()
+
+
+"----------------------------------------------------------
+" Load all the other config files.
+"----------------------------------------------------------
+
 "    Include some files
 source $HOME/.vim/config/filetypes.vim
 source $HOME/.vim/config/folding.vim
@@ -186,16 +379,13 @@ source $HOME/.vim/config/tabs.vim
 source $HOME/.vim/config/ui.vim
 "source $HOME/.vim/config/macros/changelogs.vim
 source $HOME/.vim/config/macros/text.vim
-source $HOME/.vim/config/plugins/airline.vim
-source $HOME/.vim/config/plugins/ctrlp.vim
-source $HOME/.vim/config/plugins/dash.vim
-source $HOME/.vim/config/plugins/gundo.vim
-source $HOME/.vim/config/plugins/nerd-commenter.vim
 "source $HOME/.vim/conf/plugins/neocomplcache.vim
 "source $HOME/.vim/conf/plugins/unite.vim
-source $HOME/.vim/config/plugins/vim-gitgutter.vim
-source $HOME/.vim/config/plugins/vim-indentation-guides.vim
 
-" Load any and all plugins registered with pathogen.
+
+"----------------------------------------------------------
+" Load plugins via pathogen.
+"----------------------------------------------------------
+
 call pathogen#infect()
 call pathogen#helptags()
