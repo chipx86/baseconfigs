@@ -131,8 +131,9 @@ nmap _Y :.w! ~/.vi_tmp<CR>
 vmap _Y :w! ~/.vi_tmp<CR>
 nmap _P :r ~/.vi_tmp<CR>
 
-" Clipboard support on MacOS X
-vmap <C-c> :w !pbcopy<CR><CR>
+" Native clipboard support
+vmap <C-c> "*yy
+noremap <C-c> "*yy
 
 "   ,ve  =  edit ~/.vimrc
 map ,ve     :e ~/.vimrc<CR>
