@@ -38,6 +38,18 @@
 [core]
 	excludesfile = /Users/chipx86/.gitignore_global
 	pager = less -S
+
+[color "diff"]
+	frag = yellow bold
+	old = red bold
+	new = green bold
+
+[color "status"]
+	added = green bold
+	updated = green bold
+	changed = red bold
+	untracked = red bold
+
 [diff]
 	tool = "Kaleidoscope"
 [difftool]
