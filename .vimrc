@@ -88,8 +88,9 @@ set title
 " vim (unclear where at this point).
 set re=0
 
-" Integrate with ack
-set grepprg=ack\ -a
+" Integrate with ripgrep
+set grepprg=rg\ --vimgrep\ --no-heading\ --smart-case
+set grepformat=%f:%l:%c:%m,%f:%l:%m
 
 " Fix control-* keys
 nmap    <ESC>[5^    <C-PageUp>
