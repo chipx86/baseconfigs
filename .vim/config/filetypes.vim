@@ -30,6 +30,7 @@ au FileType python set ai et sw=4 ts=4 tw=79 smartindent sta sts=4 cinwords=if,e
 au FileType ruby    set ai et sw=4 ts=4
 au FileType less    set et sw=2 ts=2
 au FileType rst     set et sw=3 ts=3 tw=78
+au FileType sh      set et sw=4 ts=4 tw=79
 
 au BufNewFile,BufRead *.dbk let b:docbk_type="xml" | set ft=docbk
 au BufNewFile,BufRead *.ml,*.rbx set ft=eruby
